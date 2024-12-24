@@ -1,0 +1,186 @@
+<!-- Navigation Bar -->
+<div class="sticky-top bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom ">
+    <div class="container-fluid d-flex align-items-center justify-content-between sticky-top" >
+        <!-- Hamburger Menu (Left) -->
+        <button class="navbar-toggler order-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Logo and Shop Name (Centered for small screens) -->
+        <a class="navbar-brand mx-auto aa" href="{% url 'home' %}">
+            <img src="https://via.placeholder.com/30" alt="Logo" width="30" height="30">
+            Cozy Gifts
+        </a>
+
+        <!-- Right-Side Links for Desktop -->
+        <ul class="navbar-nav mx-auto d-none d-lg-flex flex-row align-items-center gap-5">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-search"></i> Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-person"></i>Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'update_user' %}"><i class="bi bi-person"></i>Profile</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-person"></i>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i>Signup</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-cart"></i> Cart</a>
+            </li>
+        </ul>
+
+        <!-- Icons for Smaller Screens -->
+        <div class="d-flex d-lg-none gap-2 ">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'update_user' %}"><i class="bi bi-person"></i></a>
+            {% else %}
+            <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i></a>
+            {% endif %}
+            <a class="nav-link" href="#"><i class="bi bi-search" style="font-size: 1rem;"></i></a>
+            <a class="nav-link" href="#"><i class="bi bi-cart" style="font-size: 1rem;"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Second Row: Categories for Mobile -->
+<div class="collapse d-lg-none bg-light " id="navbarNavDropdown" >
+    <div class="p-4">
+        <ul class="list-unstyled mb-0">
+            <!-- Deal Of The Day -->
+            <li class="nav-item dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="dealDropdownMobile" data-bs-toggle="dropdown">
+                    Deal Of The Day
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dealDropdownMobile">
+                    <li><a class="dropdown-item" href="#">Today's Deals</a></li>
+                    <li><a class="dropdown-item" href="#">Clearance Sale</a></li>
+                    <li><a class="dropdown-item" href="#">Limited-Time Offers</a></li>
+                </ul>
+            </li>
+            <!-- Flowers -->
+            <li class="nav-item dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="flowersDropdownMobile" data-bs-toggle="dropdown">
+                    Flowers
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
+                    <li><a class="dropdown-item" href="#">Bouquets</a></li>
+                    <li><a class="dropdown-item" href="#">Fresh Arrangements</a></li>
+                </ul>
+            </li>
+            <!-- Cakes -->
+            <li class="nav-item dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="cakesDropdownMobile" data-bs-toggle="dropdown">
+                    Cakes
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="cakesDropdownMobile">
+                    <li><a class="dropdown-item" href="#">Birthday Cakes</a></li>
+                    <li><a class="dropdown-item" href="#">Wedding Cakes</a></li>
+                </ul>
+            </li>
+            <!-- Handmade Crafts -->
+            <li class="nav-item dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="craftsDropdownMobile" data-bs-toggle="dropdown">
+                    Handmade Crafts
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="craftsDropdownMobile">
+                    <li><a class="dropdown-item" href="#">Artisan Gifts</a></li>
+                    <li><a class="dropdown-item" href="#">Unique Creations</a></li>
+                </ul>
+            </li>
+            <!-- Candles -->
+            <li class="nav-item dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="candlesDropdownMobile" data-bs-toggle="dropdown">
+                    Candles
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="candlesDropdownMobile">
+                    <li><a class="dropdown-item" href="#">Scented Candles</a></li>
+                    <li><a class="dropdown-item" href="#">Decorative Candles</a></li>
+                </ul>
+            </li>
+            <!-- About Us -->
+            <li><a href="#" class="text-dark d-block py-2">About Us</a></li>
+            <!-- Discover -->
+            <li><a href="#" class="text-dark d-block py-2">Discover</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Second Row: Categories for Desktop -->
+<div class="bg-light py-2 d-none d-lg-block">
+    <div class="container-fluid">
+        <ul class="nav justify-content-center">
+            <!-- Deal Of The Day -->
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="dealDropdown" data-bs-toggle="dropdown">
+                    Deal Of The Day
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dealDropdown">
+                    <li><a class="dropdown-item" href="#">Today's Deals</a></li>
+                    <li><a class="dropdown-item" href="#">Clearance Sale</a></li>
+                    <li><a class="dropdown-item" href="#">Limited-Time Offers</a></li>
+                </ul>
+            </li>
+            <!-- Flowers -->
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="flowersDropdown" data-bs-toggle="dropdown">
+                    Flowers
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="flowersDropdown">
+                    <li><a class="dropdown-item" href="#">Bouquets</a></li>
+                    <li><a class="dropdown-item" href="#">Fresh Arrangements</a></li>
+                </ul>
+            </li>
+            <!-- Cakes -->
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="cakesDropdown" data-bs-toggle="dropdown">
+                    Cakes
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="cakesDropdown">
+                    <li><a class="dropdown-item" href="#">Birthday Cakes</a></li>
+                    <li><a class="dropdown-item" href="#">Wedding Cakes</a></li>
+                </ul>
+            </li>
+            <!-- Handmade Crafts -->
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="craftsDropdown" data-bs-toggle="dropdown">
+                    Handmade Crafts
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="craftsDropdown">
+                    <li><a class="dropdown-item" href="#">Artisan Gifts</a></li>
+                    <li><a class="dropdown-item" href="#">Unique Creations</a></li>
+                </ul>
+            </li>
+            <!-- Candles -->
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="candlesDropdown" data-bs-toggle="dropdown">
+                    Candles
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="candlesDropdown">
+                    <li><a class="dropdown-item" href="#">Scented Candles</a></li>
+                    <li><a class="dropdown-item" href="#">Decorative Candles</a></li>
+                </ul>
+            </li>
+            <!-- About Us -->
+            <li class="nav-item">
+                <a class="nav-link text-dark px-5 mx-3" href="#">About Us</a>
+            </li>
+            <!-- Discover -->
+            <li class="nav-item">
+                <a class="nav-link text-dark px-5 mx-3" href="{% url 'discovery' %}">Discover</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>

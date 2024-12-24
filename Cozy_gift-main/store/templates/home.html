@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="promo-banner bg-light py-3">
+        <div class="container text-center">
+            <p>Send Joy with <strong>$10 OFF</strong> using code <strong>COZY24</strong>
+                <a href="#" class="btn btn-light ms-2">Shop Now</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="hero text-center text-white py-5" style="background: url('https://via.placeholder.com/1200x500') no-repeat center center; background-size: cover;">
+        <div class="container">
+            <h1 class="display-4">Celebrate Life's Cozy Moments</h1>
+            <p class="lead">Warm and heartfelt gifts for every special occasion.</p>
+            <a href="#" class="btn btn-primary">Explore Collections</a>
+        </div>
+    </section>
+
+    <section class="special-offer py-5">
+        <div class="container text-center">
+            <h2>Special Offer!</h2>
+            <p>Get 20% off on your first order. Use code <strong>WELCOME20</strong> at checkout.</p>
+            <a href="#" class="btn btn-light">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="popular-items py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Popular Items</h2>
+            
+            <div class="row g-4">
+                {% for product in products %}
+                <div class="col-md-3">
+                    <div class="item">
+                        <img src="{{ product.image.url }}" alt="Warm Embrace Bouquet" class="img-fluid rounded">
+                        <h3 class="mt-3">{{ product.name }}</h3>
+                        ${{product.price}}<br>
+                        <a href="#" class="btn btn-outline-primary mt-2">View Details</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="collections py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Discover Our Collections</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="collection">
+                        <img src="https://via.placeholder.com/350x350" alt="Heartwarming Anniversary" class="img-fluid rounded">
+                        <h3 class="mt-3">Heartwarming Anniversary</h3>
+                        <p>Celebrate love with our curated anniversary gifts.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="collection">
+                        <img src="https://via.placeholder.com/350x350" alt="Joyful Birthday Surprises" class="img-fluid rounded">
+                        <h3 class="mt-3">Joyful Birthday Surprises</h3>
+                        <p>Make birthdays extra special with our delightful gifts.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="collection">
+                        <img src="https://via.placeholder.com/350x350" alt="Comforting Sympathy Gifts" class="img-fluid rounded">
+                        <h3 class="mt-3">Comforting Sympathy Gifts</h3>
+                        <p>Show your support with thoughtful sympathy presents.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="collection">
+                        <img src="https://via.placeholder.com/350x350" alt="Warm Winter Wonders" class="img-fluid rounded">
+                        <h3 class="mt-3">Warm Winter Wonders</h3>
+                        <p>Gift warmth and comfort this winter season.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="monthly-special py-5 text-center">
+        <div class="container">
+            <h2>Special for This Month</h2>
+            <p>Discover our curated selection of cozy gifts perfect for the season!</p>
+            <a href="#" class="btn btn-light">See More</a>
+        </div>
+    </section>
+
+    <section class="special-offer-2 py-5">
+        <div class="container text-center">
+            <h2>Limited Time Offer</h2>
+            <p>Buy any two items from our Winter Collection and get a third item for free!</p>
+            <a href="#" class="btn btn-primary">Shop Winter Collection</a>
+        </div>
+    </section>
+
+    <section class="testimonials py-5 bg-light">
+        <div class="container text-center">
+            <h2>What Our Customers Are Saying</h2>
+            <blockquote class="blockquote">
+                <p>"The best service! The bouquet I ordered for my friend's birthday was perfect!"</p>
+                <footer class="blockquote-footer">Happy Customer</footer>
+            </blockquote>
+            <blockquote class="blockquote">
+                <p>"Cozy Gifts made my anniversary unforgettable. Thank you for the amazing gifts!"</p>
+                <footer class="blockquote-footer">Satisfied Client</footer>
+            </blockquote>
+            <blockquote class="blockquote">
+                <p>"The delivery was so fast, and the quality was beyond what I expected. Highly recommend!"</p>
+                <footer class="blockquote-footer">Happy Shopper</footer>
+            </blockquote>
+        </div>
+    </section>
+
+{% endblock %}

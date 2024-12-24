@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Header-->
+<header class="bg-light py-5" style="background-color: #f8e9ec;">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center" style="color: #d6336c;">
+          <h1 class="display-4 fw-bolder">Update Profile</h1>
+          <p class="lead fw-normal mb-0" style="color: #f497b6;">
+            Update your profile details here
+          </p>
+      </div>
+  </div>
+</header>
+<div class="container" style="background-color: #fff8f0; border-radius: 10px; padding: 20px;">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h3 class="text-center" style="color: #d6336c;">Profile Information</h3>
+      <form method="POST" action="{% url 'update_user' %}" style="margin-top: 20px;">
+        {% csrf_token %}
+
+        {{ user_form.as_p }}
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary" style="background-color: #d6336c; border-color: #d6336c;">Update Profile</button>
+        </div>
+        <div class="text-center mt-4">
+        <a href="{% url 'update_password' %}" class="btn btn-secondary" style="background-color: #d6336c; border-color: #d6336c;">Update Password</a>
+      </div>
+      </form>
+      <hr>
+      <div class="text-center">
+        <a href="{% url 'logout' %}" class="btn btn-secondary" style="background-color: red; ">Logout</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

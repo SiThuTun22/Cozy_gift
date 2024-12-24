@@ -1,0 +1,221 @@
+/* discover */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #fdf6ec;
+}
+
+/* Full-Screen Section */
+.full-screen-section-my {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Left Section for Text and Paragraph */
+.left-section-my {
+  width: 50%;
+  background-color: #1e1b18;
+  color: #f2e6d9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.custom-text-my {
+  font-size: 8rem;
+  font-family: serif;
+}
+
+.paragraph-text-my {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* Right Section for Image */
+.right-section-my {
+  width: 50%;
+  overflow: hidden;
+}
+
+.image-frame-my {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Small Screen: Stack Elements */
+@media (max-width: 768px) {
+  .full-screen-section-my {
+      flex-direction: column; /* Stack elements vertically */
+      height: auto; /* Allow scrolling */
+  }
+
+  .left-section-my, .right-section-my {
+      width: 100%; /* Full width */
+      height: auto; /* Adjust height */
+      padding: 1rem;
+  }
+
+  .custom-text-my {
+      font-size: 4rem; /* Smaller text for phones */
+  }
+
+  .right-section-my {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .paragraph-text-my {
+      margin-top: 1rem;
+      font-size: 1rem; /* Adjust paragraph size */
+  }
+}
+
+body {
+  background-color: #fdfcec; /* Light beige background */
+  color: #3c2d27; /* Soft dark text */
+  line-height: 1.8;
+}
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.divider-my {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1rem 0;
+  width: 10%;
+}
+.content-section-my {
+  margin: 0 auto;
+  max-width: 800px; /* Limit content width */
+  padding: 1rem;
+}
+.content-paragraph-my {
+  margin-bottom: 2rem;
+}
+
+.content-paragraph-my p {
+  font-family: montserrat;
+  font-size: 1.5em;
+}
+
+/* Shrink the width of the divs */
+.content-paragraph-my {
+  width: 800px; 
+  height: auto;
+  margin: 0 auto; /* Center the div horizontally */
+  padding: 15px; /* Add some padding for better readability */
+}
+
+/* Add a dash before each paragraph */
+.content-paragraph-my p {
+  position: relative;
+  padding-left: 25px; /* Space for the dash */
+}
+
+.content-paragraph-my p::before {
+  content: '-'; /* Dash symbol */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem; /* Adjust the size of the dash */
+  color: #333; /* Adjust the color of the dash */
+}
+/*
+/* Video styling */
+.video-my {
+  width: 600px;        /* Set width of the video */
+  height: 400px;       /* Set height of the video */
+  display: block;      /* Ensures the video behaves like a block element */
+  margin: 20px auto;   /* Centers the video horizontally and adds margin for spacing */
+  
+}
+
+/* Optional: Add responsive design for smaller screens */
+@media (max-width: 768px) {
+  .video-my {
+      width: 100%;      /* Make video width 100% of container on smaller screens */
+      height: auto;     /* Adjust height automatically to maintain aspect ratio */
+  }
+}
+
+.frame-container-my {
+display: flex;
+flex-direction: row;
+align-items: center;
+background-color: #fdf6ec;
+max-width: 1200px;
+margin: 20px;
+/* border-radius: 8px; */
+overflow: hidden;
+/* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.image-container-my img {
+width: 100%;
+height: auto;
+max-width: 500px;
+display: block;
+}
+
+.text-container-my {
+padding: 20px;
+color: #333;
+font-size: 18px;
+line-height: 1.6;
+}
+
+.quote-my {
+font-style: italic;
+}
+
+.author-my {
+text-align: right;
+margin-top: 10px;
+font-size: 16px;
+color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+.frame-container-my {
+  flex-direction: column;
+  text-align: center;
+}
+
+.text-container-my {
+  padding: 15px;
+}
+
+.image-container-my img {
+  width: 100%;
+  max-width: none;
+}
+}
+
+@media screen and (max-width: 480px) {
+.text-container-my {
+  font-size: 16px;
+}
+
+.quote-my {
+  font-size: 14px;
+}
+
+.author-my {
+  font-size: 12px;
+}
+}
+
+
+/* discover */

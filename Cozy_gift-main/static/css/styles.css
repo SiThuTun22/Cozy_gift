@@ -1,0 +1,347 @@
+/* General Styles */
+body {
+    font-family: 'Lora', serif;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1140px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header */
+header {
+    background-color: rgba(57, 125, 198, 0.1);
+    color: white;
+    padding: 20px 0;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Styling for Navigation Links */
+.nav-link {
+    font-weight: bolder;
+    font-size: 14px;
+    position: relative;
+    padding: 10px 20px; /* Adjust padding for larger hover area */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px; /* Rounded corners for hover */
+}
+
+/* Hover Effect for Nav Links */
+.nav-link:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Subtle blue background */
+    color: #007bff; /* Change text color */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.05); /* Slight scale-up for hover animation */
+}
+
+/* Styling for Icons */
+.icons a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.icons i {
+    font-size: 1.2rem; /* Adjust this value as needed (default is 1.5rem) */
+    margin-right: 4px; /* Optional: Space between the icon and text */
+}
+
+/* Header Styling with Shadow */
+header {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for Nav Items */
+.nav-item {
+    font-weight: 900;
+}
+
+/* Hover Effect for Icons */
+.icons a:hover {
+    color: #007bff;
+}
+
+/* Force dropdown to display on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    animation: dropdownFade 0.3s ease-in-out;
+}
+
+/* Animation for Dropdown Fade In */
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for Dropdown Menu */
+.dropdown-menu {
+    min-width: 350px; /* Increases the dropdown menu width */
+    padding: 15px; /* Adds padding inside the dropdown */
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #fff; /* Ensure consistent background */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Styling for Dropdown Items */
+.dropdown-item {
+    padding: 14px 28px; /* Increases padding for links */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-item:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Subtle blue hover effect */
+    color: #007bff; /* Matches the hover text color */
+}
+
+/* Responsive Design - Stacking Dropdowns on Smaller Screens */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; /* Stack nav items vertically */
+        text-align: center;
+    }
+
+    .nav-item {
+        width: 100%; /* Make nav items take full width */
+    }
+
+    .dropdown-menu {
+        position: relative; /* Allow dropdown to appear inline */
+        min-width: 100%; /* Ensure dropdown takes full width */
+    }
+
+    .dropdown-item {
+        text-align: left; /* Align text to the left for mobile */
+    }
+}
+
+/* Promo Banner */
+.promo-banner {
+    background-color: #ff7b7b;
+    color: rgb(0, 0, 0);
+    padding: 15px 0;
+}
+
+.promo-banner p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.promo-banner .btn {
+    background-color: white;
+    color: #ff7b7b;
+    border: 2px solid #ff7b7b;
+}
+
+/* Hero Section */
+.hero {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 120px 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+}
+
+/* Special Offer */
+.special-offer, .monthly-special, .special-offer-2 {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.special-offer h2, .monthly-special h2, .special-offer-2 h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.special-offer p, .monthly-special p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.special-offer .btn, .monthly-special .btn, .special-offer-2 .btn {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+}
+
+/* Popular Items */
+.popular-items {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.popular-items h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.popular-items .item {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+}
+
+.popular-items .item img {
+    width: 100%; /* Ensures the image fits the container width */
+    height: 250px; /* Sets a fixed height */
+    object-fit: cover; /* Crops and scales the image to maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popular-items .btn {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+}
+
+
+/* Hover Effect for Popular Items */
+.popular-items .item:hover {
+    transform: scale(1.05); /* Slightly scale up the item */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase box-shadow */
+    background-color: #f1f1f1; /* Slightly change background color on hover */
+}
+
+/* Collections */
+.collections {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.collections h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.collections .collection {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+}
+
+.collections .collection img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.collections .btn {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+}
+
+/* Hover Effect for Collections */
+.collections .collection:hover {
+    transform: scale(1.05); /* Slightly scale up the collection */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    background-color: #f1f1f1; /* Slightly change background color on hover */
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+}
+
+.testimonials blockquote {
+    background-color: white;
+    border-left: 5px solid #ff7b7b;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonials blockquote footer {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 30px 0;
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+footer .social-icons a {
+    font-size: 1.5rem;
+    color: white;
+    margin-right: 15px;
+}
+
+footer .social-icons a:hover {
+    color: #ff7b7b;
+}
+
+footer .form-control {
+    width: 80%;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+footer .btn {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .popular-items .col-md-3 {
+        margin-bottom: 20px;
+    }
+
+    .collections .col-md-3 {
+        margin-bottom: 20px;
+    }
+}
