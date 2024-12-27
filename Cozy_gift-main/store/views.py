@@ -7,6 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 # Create your views here.
+def products(request):
+  products = Product.objects.all()
+  return render(request,'product.html',{'products':products})
+
 def update_password(request):
   if request.user.is_authenticated:
     current_user = request.user
