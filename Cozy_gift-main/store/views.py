@@ -7,6 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 # Create your views here.
+# About Us page view
+def about_us(request):
+    return render(request, 'about_us.html')
+
 def products(request):
   products = Product.objects.all()
   return render(request,'product.html',{'products':products})

@@ -1,0 +1,327 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(to bottom, #fff5f7 0%, #ffffff 100%);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: url('https://via.placeholder.com/1200x600.png?text=Lovingly+Hero+Image') no-repeat center center/cover;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Our Story section styles */
+.our-story {
+    background-color: #fff;
+    padding: 4rem 0;
+    opacity: 0;
+    animation: fadeInSection 1s forwards;
+}
+
+.our-story:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.our-story h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-image {
+    flex: 1;
+    text-align: center;
+}
+
+.story-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Why choose us styles */
+.why-choose-us {
+    background-color: #fff;
+    padding: 4rem 0;
+    opacity: 0;
+    animation: fadeInSection 1s forwards;
+}
+
+.why-choose-us:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.why-choose-us h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex-basis: calc(33.333% - 2rem);
+    background-color: #fff5f7;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ff6b9b;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 4rem 0;
+    background-color: #fff5f7;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    display: grid;
+    grid-template-rows: 1fr auto; /* Two rows: content area and fixed footer */
+    height: 100%; /* Ensure uniform card height */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Animation delays for each card */
+.testimonial-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Hover effect for testimonial cards */
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+/* Testimonial Content */
+.testimonial-content {
+    padding: 2rem;
+    overflow: hidden; /* Prevent overflow for very long text */
+    position: relative;
+}
+
+.testimonial-content::before {
+    content: '"';
+    font-size: 5rem;
+    color: #ff6b9b;
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Testimonial Author Section */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #f9f9f9; /* Light background for author section */
+    border-top: 1px solid #eee; /* Separator between content and author */
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Rating Stars */
+.testimonial-rating {
+    color: #ffc107; /* Gold color for stars */
+    font-size: 1rem;
+    margin-top: 0.3rem;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    }
+}
+
+
+/* Newsletter signup styles */
+.newsletter {
+    background: linear-gradient(45deg, #ff6b9b, #ff4f8b);
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter p {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter input[type="email"] {
+    flex-grow: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+.newsletter button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #555;
+}
+
+/* Keyframe animation for fading in */
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframe animation for testimonials fade-in effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

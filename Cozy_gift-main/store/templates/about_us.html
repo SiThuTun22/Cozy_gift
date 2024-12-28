@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+{% endblock %}
+{% block content %}
+ 
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Gifts that Speak <span style="color: #ff6b9b;"></span></h1>
+            <p>Discover the perfect way to express your feelings with our curated collection of thoughtful gifts and stunning floral arrangements.</p>
+            
+        </div>
+    </section>
+
+    <!-- Our Story section -->
+    <section id="our-story" class="our-story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Lovingly was born from a simple yet powerful idea: to help people express their deepest emotions through the timeless language of flowers and gifts. Our journey began in a small flower shop in the heart of the city, where our founder, Sarah, spent countless hours crafting bouquets that told stories of love, friendship, and compassion.</p>
+                    <p>As word spread about Sarah's unique ability to capture feelings in her arrangements, the demand grew. She realized that there was a need for a service that could deliver not just flowers, but emotions, across distances. This realization led to the birth of Lovingly.</p>
+                    <p>Today, Lovingly has blossomed into a nationwide network of skilled artisan florists and gift curators. We've expanded our offerings, but our core mission remains the same: to help you convey your feelings, no matter the occasion or distance. Every arrangement, every gift we send is a testament to the power of human connection.</p>
+                    <p>At Lovingly, we believe that every gesture of kindness, no matter how small, has the power to make the world a little bit brighter. We're here to help you spread that light, one heartfelt gift at a time.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://via.placeholder.com/400x300.png?text=Our+Story" alt="Lovingly's journey">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us section -->
+    <section id="why-choose-us" class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose Lovingly?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Handcrafted with Care</h3>
+                    <p>Each arrangement is thoughtfully designed and crafted by local artisan florists.</p>
+                </div>
+                <div class="feature">
+                    <h3>Same-Day Delivery</h3>
+                    <p>Need it now? We offer same-day delivery for orders placed before 2 PM local time.</p>
+                </div>
+                <div class="feature">
+                    <h3>100% Satisfaction Guarantee</h3>
+                    <p>Not completely satisfied? We'll make it right or refund your purchase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials section -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The attention to detail and personal touch made my gift extra special. Lovingly truly understands the art of gifting! I was blown away by the quality and presentation. It's clear that they put their heart into every arrangement."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/70x70.png?text=SM" alt="Sarah M.">
+                    <div class="author-info">
+                        <span class="author-name">Sarah M.</span>
+                        <span class="author-title">Happy Customer</span>
+                        <div class="testimonial-rating">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Their recommendation engine helped me pick the perfect arrangement. It was exactly what I was looking for!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/70x70.png?text=MR" alt="Michael R.">
+                    <div class="author-info">
+                        <span class="author-name">Michael R.</span>
+                        <span class="author-title">Repeat Customer</span>
+                        <div class="testimonial-rating">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The quality of flowers and service is consistently outstanding. I appreciate how they keep me updated throughout the delivery process, ensuring my gift arrives perfectly."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/70x70.png?text=ET" alt="Emily T.">
+                    <div class="author-info">
+                        <span class="author-name">Emily T.</span>
+                        <span class="author-title">Loyal Customer</span>
+                        <div class="testimonial-rating">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Newsletter section -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <h2>Join the Lovingly Family</h2>
+            <p>Sign up for our newsletter and be the first to know about special offers, new collections, and gifting tips!</p>
+            
+        </div>
+    </section>
+{% endblock %}
