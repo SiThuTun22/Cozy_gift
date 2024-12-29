@@ -1,0 +1,479 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color:  #f2e6d9;
+    position: relative;
+    color: #3c2d27; /* Soft dark text */
+    line-height: 1.8;
+}
+
+.full-screen-section-my {
+    display: flex;
+    flex-wrap: nowrap; /* Adjusts to wrap at smaller widths */
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #1e1b18;
+    margin: 0;
+    position: relative;
+    padding: 0 1.25rem;
+}
+
+
+/* Left Section for Text and Paragraph */
+.left-section-my {
+    width: 50%;
+    margin-right: 0.625rem;
+  
+    margin: 0.9375rem;
+    background-color: #1e1b18;
+    color: #f2e6d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;   /* 20px = 1.25rem */
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    position: relative; 
+    box-sizing: border-box; /* Ensures padding is included in width */
+  
+}
+
+.right-section-my {
+  width: 50%;
+  overflow: hidden;
+ 
+}
+
+
+
+.top-text-my {
+
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto;
+  max-width: 100%; /* stay inside container*/
+  position: relative;
+  line-height: 0;
+  word-wrap: break-word; /* Prevents long words from overflowing */
+}
+
+.custom-text-my {
+    font-size: 8rem;
+    font-family: sans-serif;
+    margin: auto;
+    text-transform: uppercase;
+ 
+}
+
+
+@media (max-width: 576px) {
+  
+ .custom-text-my {
+  /* Bigger font size for smaller screens */
+    font-size: 5rem;
+    max-width: 18.75rem; /* 300px = 18.75rem */
+  }
+
+    .paragraph-text-my {
+
+      font-size: 1.2rem;
+      margin-top: auto; 
+      position: relative;
+      margin-bottom: 2rem;
+     }
+  .right-section-my {
+    width: 50%;
+    overflow: hidden;
+    }
+
+}
+/* 
+.paragraph-text-my {
+
+    font-size: 1.2rem;
+    margin-top: auto; 
+    position: relative;
+    margin-bottom: 2rem;
+  
+} */
+
+/* Right Section for Image */
+.right-section-my {
+    width: 50%;
+    overflow: hidden;
+}
+
+
+/* Small Screen: Stack Elements */
+/* 768px */
+@media (max-width: 768px) {
+  .full-screen-section-my {
+      flex-direction: column; /* Stack elements vertically */
+      flex-wrap: wrap;
+      height: 100vh; /* Allow scrolling */
+ 
+  }
+
+  .left-section-my, .right-section-my {
+      width: 100%; /* Full width */
+      height: auto; /* Adjust height */
+      padding: 1rem;
+  }
+
+  .custom-text-my {
+      font-size: 5rem; /* Smaller text for phones */
+      max-width: 90%;
+  }
+
+  .right-section-my {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 0; /* Stick to bottom */
+      left: 0;
+      right: 0;
+      height: 25rem; /* Fixed container height */ /* 400px = 25rem */
+      width: 100%;
+      overflow-x: auto; /* Allow horizontal scrolling */
+      overflow-y: hidden; /* Disable vertical scrolling */
+  }
+  
+  .paragraph-text-my {
+      margin: 1rem 0;
+      font-size: 1rem; /* Adjust paragraph size */
+         
+  }
+
+  .image-frame-my {
+    width: 21.875rem; /* 350px = 21.875rem */
+    height: 28.125rem; /* 450px = 28.125rem */
+    object-fit:fill; /* Ensure the full image fits inside */
+    
+    flex-shrink: 0;
+  }
+
+}
+
+
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 2cap;
+    margin-bottom: 3rem;
+    max-width: 27.5rem; /* 440px = 27.5rem */
+    margin: 0 auto;
+}
+
+  .vd {
+    margin: 1.25rem auto;
+    text-align: center;
+    position: relative;
+}
+
+.divider-my {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1.5rem;
+    
+    width: 10%;
+}
+.content-section-my {
+    margin: 0 auto;
+    max-width: 56.25rem; /* Limit content width */  /* 900px = 56.25rem */
+    padding: 1rem;
+    margin-top: 2rem;
+}
+.content-paragraph-my, .funfact-paragraph-my {
+    margin-bottom: 2rem;
+}
+
+.content-paragraph-my p {
+    font-size: 1.5em;
+}
+.funfact-paragraph-my p {
+  font-size: 1.2em;
+}
+
+/* .content-paragraph-my {
+    width: 800px; 
+    height: auto;
+    margin: 20px auto; 
+    padding: 0 15px; 
+} */
+/*practice*/
+.content-paragraph-my, .funfact-paragraph-my {
+  margin: 1.25rem auto; /* Default margin for all devices */
+  max-width: 40rem; /* 640px = 40rem */
+  padding: 0 0.9375rem; /* 15px = 0.9375rem */ 
+  font-size: 1rem; /* Default font size */
+  line-height: 1.5; 
+  color: #333; 
+  
+}
+
+@media (max-width: 767px) { /* Mobile devices */
+  .content-paragraph-my, .funfact-paragraph-my {
+      margin: 1.25rem 1.25rem; 
+      padding: 0.625rem;
+      font-size: 0.9rem; 
+      line-height: 1.5;
+      max-width: 100%; 
+    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) { /* Tablets */
+  .content-paragraph-my , .funfact-paragraph-my {
+      margin: 1.25rem auto; 
+      padding: 0.9375rem; 
+      font-size: 1rem; 
+      line-height: 1.6; 
+      max-width: 90%; 
+  }
+}
+
+@media (min-width: 1200px) { /* Desktops and larger screens */
+  .content-paragraph-my , .funfact-paragraph-my {
+      margin:  1.25rem auto;
+      padding: 1.25rem; 
+      font-size: 1.1rem; 
+      line-height: 1.5;
+      max-width: 56.25rem; 
+      height: auto;
+      padding: 0 15px; 
+     
+  }
+}
+
+
+/* Add a dash before each paragraph */
+.content-paragraph-my p {
+    position: relative;
+    padding-left: 25px; /* Space for the dash */
+}
+
+.content-paragraph-my p {
+  position: relative;
+  padding-left: 25px;
+}
+
+.content-paragraph-my p::before {
+    content: '_'; /* Dash symbol */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem; 
+    color: #333; /* Adjust the color of the dash */
+}
+
+.video-my {
+  padding: 1.25rem 0; /* Adds space around the video */
+}
+
+
+@media (min-width: 635px) {
+    .vd{
+     
+        max-width: 100%; 
+        padding: 20px 0;
+        }
+
+    }
+
+
+.frame-container-my {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 75rem; /* 1200px = 75rem */
+  margin: 1.875rem; /* 30px = 1.875rem */
+  overflow: hidden;
+  margin-left: 6.25rem; /* 100px = 6.25rem */
+  justify-content: center;
+}
+
+.image-container-my img {
+  width: 100%;
+  height: auto;
+  max-width: 21.5625rem; /* 345px = 21.5625rem */
+  max-height: 29.375rem; /* 470px = 29.375rem */
+  display: block;
+  margin-right: 2rem;
+}
+
+.text-container-my {
+  padding: 1.25rem;
+  color: #333;
+  font-size: 1.125rem; /* 18px = 1.125rem */
+  line-height: 1.6;
+  margin-left: 2rem;
+  max-width: 28.125rem; /* 450px = 28.125rem */
+}
+
+.quote-my {
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.author-my {
+  text-align: right;
+  margin-top: 0.625rem;
+  font-size: 1rem; /* 16px = 1rem */
+  color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .frame-container-my {
+    flex-direction: column;
+    text-align: center;
+    
+   
+  }
+
+  .text-container-my {
+    padding: 0.9375rem; /* 15px = 0.9375rem */
+  }
+
+  .image-container-my img {
+    width: 100%;
+    max-width: none;
+  }
+}
+@media screen and (max-width: 730){
+  .frame-container-my {
+    display: block;
+    width: 100%;
+    text-align: center; 
+    margin-left: 0.625rem;
+    padding:0;
+    position: absolute;
+
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text-container-my {
+    font-size: 1rem;
+  }
+
+  .quote-my {
+    font-size: 0.875rem; /* 14px = 0.875rem */
+  }
+
+  .author-my {
+    font-size: 0.75rem; /* 12px = 0.75rem */
+  }
+}
+.content-wrapper-my {
+  display: flex; 
+  align-items: center; 
+  margin: 2rem;
+  
+}
+
+.left-line-my {
+  float: left;
+  width: 0.3125rem; /* 5px = 0.3125rem */
+  height: 25rem; /* 400px = 25rem */
+  background-color: silver;
+
+}
+
+
+.left-line-my, .right-line-my {
+  width: 0.125rem; /* 2px = 0.125rem */
+  background-color: gray;
+  height: auto; /* Adjust height dynamically */
+}
+
+
+.right-line-my {
+  margin-left: 0.625rem; /* 10px = 0.625rem */ /* Space between content and line */
+}
+
+
+.content {
+  flex: 1; /* Content takes up available space */
+  margin: 0 0.625rem; /* 10px = 0.625rem */ 
+}
+
+
+.title-my {
+  text-transform: uppercase;
+  font-weight: 30px;
+  font-size: 1.25rem;
+  margin: 0 0 0.625rem 0; /* Space below title */
+  text-align: center;
+}
+
+/* Paragraph styling */
+.funfact-paragraph-my span {
+  text-align: justify; 
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 740px) {
+  .content {
+    border-left: 2px solid silver;
+    border-right: 2px solid silver;
+       
+  }
+}
+@media screen and (max-width: 740px) {
+  .content-wrapper-my {
+      flex-direction: column; 
+      align-items: center;
+  }
+
+  .left-line-my, .right-line-my {
+      width: 100%; /* Horizontal lines on smaller screens */
+      height:  0.125rem; /* 2px = 0.125rem */
+      margin: 0.625rem 0; /* Space between lines and content */ /* 10px = 0.625rem */
+  }
+
+  .title-my, .funfact-paragraph-my span {
+      text-align: center; 
+  }
+}
+
+/* read more operation */
+.text-hidden-my {
+  display: none; /* Initially hidden */
+}
+
+.content-paragraph-my.visible {
+  display: block; 
+  /* Display paragraphs with "visible" class*/
+ 
+}
+
+.read-more {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 30px;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.read-more:focus {
+  outline: none;
+}
+

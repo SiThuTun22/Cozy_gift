@@ -102,17 +102,16 @@
             <!-- Candles -->
             <li class="nav-item dropdown">
                 <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="candlesDropdownMobile" data-bs-toggle="dropdown">
-                    Candles
+                    Discover
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="candlesDropdownMobile">
-                    <li><a class="dropdown-item" href="#">Scented Candles</a></li>
-                    <li><a class="dropdown-item" href="#">Decorative Candles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'rose' %}">Rose</a></li>
+                    <li><a class="dropdown-item" href="{% url 'orchid' %}">Orchids</a></li>
+                    <li><a class="dropdown-item" href="{% url 'tulip' %}">Tulips</a></li>
                 </ul>
             </li>
             <!-- About Us -->
             <li><a href="{% url 'about_us' %}" class="text-dark d-block py-2">About Us</a></li>
-            <!-- Discover -->
-            <li><a href="#" class="text-dark d-block py-2">Discover</a></li>
         </ul>
     </div>
 </div>
@@ -165,20 +164,17 @@
             <!-- Candles -->
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="candlesDropdown" data-bs-toggle="dropdown">
-                    Candles
+                    Discover
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="candlesDropdown">
-                    <li><a class="dropdown-item" href="#">Scented Candles</a></li>
-                    <li><a class="dropdown-item" href="#">Decorative Candles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'rose' %}">Rose</a></li>
+                    <li><a class="dropdown-item" href="{% url 'orchid' %}">Orchids</a></li>
+                    <li><a class="dropdown-item" href="{% url 'tulip' %}">Tulips</a></li>
                 </ul>
             </li>
             <!-- About Us -->
             <li class="nav-item">
                 <a class="nav-link text-dark px-5 mx-3" href="{% url 'about_us' %}">About Us</a>
-            </li>
-            <!-- Discover -->
-            <li class="nav-item">
-                <a class="nav-link text-dark px-5 mx-3" href="{% url 'discovery' %}">Discover</a>
             </li>
         </ul>
     </div>

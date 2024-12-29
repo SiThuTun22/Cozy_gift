@@ -8,7 +8,9 @@ urlpatterns = [
   path('logout/',views.logout_user,name="logout"),
   path('update_user/',views.update_user,name="update_user"),
   path('update_password/',views.update_password,name="update_password"),
-  path('discovery/',views.discovery,name="discovery"),
+  path('rose/',views.rose,name="rose"),
+  path('tulip/',views.tulip,name="tulip"),
+  path('orchid/',views.orchid,name="orchid"),
   path('product/',views.products,name="product"),
   path('about-us/', views.about_us, name="about_us"), 
 ]

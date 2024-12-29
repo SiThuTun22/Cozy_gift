@@ -49,8 +49,16 @@ def update_user(request):
   else:
     messages.success(request,"You Must Be Logged In")
     return redirect('home')
-def discovery(request):
-  return render(request,'discovery.html',{})
+
+def rose(request):
+  return render(request,"rose.html",{})
+
+def tulip(request):
+  return render(request,"tulip.html",{})
+
+def orchid(request):
+  return render(request,"orchid.html",{})
+
 def home(request):
   products = Product.objects.all()
   return render(request,'home.html',{'products':products})
