@@ -173,7 +173,9 @@
                 <!-- Each Product -->
                 <div class="col-6 col-md-4">
                     <div class="collection">
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary mt-2"><img src="{{ product.image.url }}" alt="Very Merry Christmas"></a>
+                        <a href="{% url 'product_detail' product.id %}" class="btn">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
                         <h3 class="mt-2">{{ product.name }}</h3>
                         <p>{{product.price}}</p>
                     </div>
