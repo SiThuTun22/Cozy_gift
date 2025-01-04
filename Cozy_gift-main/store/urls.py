@@ -12,5 +12,6 @@ urlpatterns = [
   path('tulip/',views.tulip,name="tulip"),
   path('orchid/',views.orchid,name="orchid"),
   path('product/',views.products,name="product"),
-  path('about-us/', views.about_us, name="about_us"), 
+  path('about-us/', views.about_us, name="about_us"),
+  path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
 ]

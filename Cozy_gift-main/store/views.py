@@ -8,6 +8,10 @@ from django import forms
 from django.contrib.auth.models import User
 # Create your views here.
 # About Us page view
+def product_detail(request,pk):
+  product_detail = Product.objects.get(id=pk)
+  return render(request,"product_detail.html",{'product_detail':product_detail})
+
 def about_us(request):
     return render(request, 'about_us.html')
 

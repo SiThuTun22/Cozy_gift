@@ -36,9 +36,11 @@
                 <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i>Signup</a>
             </li>
             {% endif %}
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-cart"></i> Cart</a>
-            </li>
+            <form class="d-flex">
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"><i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{cart|length}}</span></a>
+              </form>
         </ul>
 
         <!-- Icons for Smaller Screens -->
@@ -49,7 +51,11 @@
             <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i></a>
             {% endif %}
             <a class="nav-link" href="#"><i class="bi bi-search" style="font-size: 1rem;"></i></a>
-            <a class="nav-link" href="#"><i class="bi bi-cart" style="font-size: 1rem;"></i></a>
+            <form class="d-flex">
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"><i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{cart|length}}</span></a>
+              </form>
         </div>
     </div>
 </nav>

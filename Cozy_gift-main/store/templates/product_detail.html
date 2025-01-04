@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+{% endblock %}
+{% block content %}
+      
+            <div class="breadcrumb">
+                <a href="">Home</a> /
+                <a href="">All Flower Bouquets & Arrangements</a> /
+                <span>Florist's Choice for Birthday</span>
+            </div>
+        
+            <main class="main">
+                <div class="product">
+                    <div class="product-gallery">
+                        <div class="thumbnails">
+                            <img src="{{ product_detail.image.url }}" alt="" class="thumbnail">
+                            <img src="{{ product_detail.image.url }}" alt="" class="thumbnail">
+                            <img src="{{ product_detail.image.url }}" alt="" class="thumbnail">
+                            <img src="{{ product_detail.image.url }}" alt="" class="thumbnail">
+                        </div>
+                        <div class="main-image">
+                            <img src="{{ product_detail.image.url }}" alt="Florist's Choice for Birthday">
+                        </div>
+                    </div>
+        
+                    <div class="product-info">
+                        <div>
+                            <h1 class="product-title">{{ product_detail.name }}</h1>
+                            <p class="product-subtitle justified">{{ product_detail.description }}</p>
+                        </div>
+        
+                        <div>
+                            <h2>Price</h2>
+                            <div class="size-options">
+                                <div class="size-option most-loved">
+                                    <div class="price">
+                                        <!-- <span class="original-price">130000</span> -->
+                                        <span class="sale-price">{{ product_detail.price }}</span>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-3"><strong>Quantity:</strong></div>
+                                <div class="col-md-4">
+                                    <input 
+                                        type="number" 
+                                        id="qty-cart" 
+                                        class="form-control text-center" 
+                                        value="1" 
+                                        min="1" 
+                                        step="1" 
+                                        style="border: 1px solid #d63384; border-radius: 5px; background-color: #fffaf0;">
+                                </div>
+                            </div>
+                        </div>                        
+                        <a href="{% url 'home' %}" class="btn" style="background-color: #f9f0f4; color: #d63384; border: 1px solid #d63384; border-radius: 5px;">
+                            Home
+                        </a>
+                        <button type="button" value="{{ product_detail.id }}" class="btn" id="add-cart" style="background-color: #d63384; color: #fff; border: none; border-radius: 5px;">
+                            Add to Cart
+                        </button>
+                        
+                        <!-- <div>
+                            <h2>Where should we deliver?</h2>
+                            <div class="location">
+                                <input type="text" placeholder="Location">
+                            </div>
+                        </div> -->
+<!--         
+                        <button class="delivery-button">Select Delivery Date</button>
+        
+                        <div class="features">
+                            <div class="feature">
+                                <span>🚚</span>
+                                <span>Hand-Delivered with Care</span>
+                            </div>
+                            <div class="feature">
+                                <span>✓</span>
+                                <span>100% Satisfaction Guaranteed</span>
+                            </div>
+                        </div> -->
+        
+                        <!-- <div class="next-steps">
+                            <h2>What Happens Next?</h2>
+                            <p>The next steps in crafting your heartfelt moment:</p>
+                            <ul class="steps-list">
+                                <li>Select your delivery date.</li>
+                                <li>Write a personal message. (We can help!)</li>
+                                <li>One of our local florists gets to work ensuring the utmost artistic care.</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+        
+                <!-- <div class="description">
+                    <h2>What makes this arrangement unique:</h2>
+                    <p>
+                        Not sure what to pick? Our Florist's Choice for Romance lets our expert florists create a custom arrangement
+                        filled with the freshest seasonal blooms, perfect for setting a romantic mood. Each bouquet is designed with a
+                        personal touch to convey warmth, love, and affection, making it an unforgettable gift.
+                    </p>
+                </div> -->
+        
+                <div class="you-may-like">
+                    <h2>You May Also Like</h2>
+                    <div class="recommendations">
+                        <a href="#" class="recommendation">
+                            <img src="" alt="Red Rose Bouquet">
+                            <span class="name">Red Rose Bouquet</span>
+                            <span class="price">$59.99</span>
+                        </a>
+                        <a href="#" class="recommendation">
+                            <img src="" alt="Mixed Tulip Arrangement">
+                            <span class="name">Mixed Tulip Arrangement</span>
+                            <span class="price">$49.99</span>
+                        </a>
+                        <a href="#" class="recommendation">
+                            <img src="" alt="Orchid Plant">
+                            <span class="name">Orchid Plant</span>
+                            <span class="price">$39.99</span>
+                        </a>
+                        <a href="#" class="recommendation">
+                            <img src="" alt="Sunflower Surprise">
+                            <span class="name">Sunflower Surprise</span>
+                            <span class="price">$54.99</span>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        <script>
+            $(document).on('click',"#add-cart",function(e){
+              e.preventDefault();
+              $.ajax({
+                type:"POST",
+                url:"{% url 'cart_add' %}",
+                data:{
+                  product_id:$('#add-cart').val(),
+                  product_qty:$('#qty-cart').val(),
+                  csrfmiddlewaretoken:"{{csrf_token}}",
+                  action:'post'
+                },
+                success:function(json){
+                  // console.log(json)
+                  document.getElementById('cart_quantity').textContent = json.qty
+                  location.reload()
+                },
+                error:function(xhr,errmsg,err){
+                  
+                }
+              })
+            });
+          </script>
+        {% endblock %}  
+  
