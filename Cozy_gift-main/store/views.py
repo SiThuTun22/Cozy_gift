@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Product,Profile
+from .models import Product,Profile,Category
 from .forms import SignUpForm, UpdateUserForm,ChangePasswordForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
@@ -7,11 +7,23 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 # Create your views here.
-# About Us page view
+def category(request,foo):
+  # replace if there is dash
+  foo = foo.replace('-',' ')
+  # Grab the category from the url
+  try:
+    # Look up the category 
+    category = Category.objects.get(name = foo)
+    products = Product.objects.filter(category=category)
+    return render(request, 'category.html',{'products':products,'category':category})
+  except:
+    return redirect('home')
+
 def product_detail(request,pk):
   product_detail = Product.objects.get(id=pk)
   return render(request,"product_detail.html",{'product_detail':product_detail})
 
+# About Us page view
 def about_us(request):
     return render(request, 'about_us.html')
 

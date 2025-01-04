@@ -13,5 +13,6 @@ urlpatterns = [
   path('orchid/',views.orchid,name="orchid"),
   path('product/',views.products,name="product"),
   path('about-us/', views.about_us, name="about_us"),
+  path('category/<str:foo>',views.category,name="category"),
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
 ]

@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-menu d-block d-md-none mb-3">
+        <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#filterSortMenu"
+            aria-label="Open Filters and Sort">
+            ☰ Filters & Sort
+        </button>
+    </div>
+
+    <!-- Offcanvas for Mobile Filters & Sort -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="filterSortMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Filters & Sort</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Sort Section -->
+            <div class="mb-4">
+                <h5>Sort by:</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortRelevance" checked>
+                    <label class="form-check-label" for="sortRelevance">Relevance</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortNewest">
+                    <label class="form-check-label" for="sortNewest">Newest</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortPriceLowHigh">
+                    <label class="form-check-label" for="sortPriceLowHigh">Price, low to high</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortPriceHighLow">
+                    <label class="form-check-label" for="sortPriceHighLow">Price, high to low</label>
+                </div>
+            </div>
+
+            <!-- Filters Section -->
+            <h5 class="d-flex justify-content-between align-items-center mb-3">
+                Filter by: <button class="btn btn-link p-0">Clear All</button>
+            </h5>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('colorFilter')">Color <span>+</span></h5>
+                <div class="filter-content" id="colorFilter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorBlue">
+                        <label class="form-check-label" for="colorBlue">Blue</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorRed">
+                        <label class="form-check-label" for="colorRed">Red</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorPink">
+                        <label class="form-check-label" for="colorPink">Pink</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('priceFilter')">Price <span>+</span></h5>
+                <div class="filter-content" id="priceFilter">
+                    <label for="minPrice">Min Price</label>
+                    <input type="number" id="minPrice" class="form-control mb-2" placeholder="Min">
+                    <label for="maxPrice">Max Price</label>
+                    <input type="number" id="maxPrice" class="form-control" placeholder="Max">
+                </div>
+            </div>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('flowerTypeFilter')">Flower Type <span>+</span></h5>
+                <div class="filter-content" id="flowerTypeFilter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="flowerLilies">
+                        <label class="form-check-label" for="flowerLilies">Lilies</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="flowerOrchids">
+                        <label class="form-check-label" for="flowerOrchids">Orchids</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Apply Filters Button -->
+        <div class="apply-filters-btn">
+            Apply Filters
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sidebar Filters (Visible in Desktop Mode) -->
+        <div class="col-md-3 d-none d-md-block">
+            <!-- Sort By Section -->
+            <div class="sort-by-container d-md-flex justify-content-end align-items-center mb-3">
+                <label for="sortBy" class="me-2">Sort By:</label>
+                <select id="sortBy" class="form-select form-select-sm w-auto">
+                    <option value="relevance">Relevance</option>
+                    <option value="priceLowToHigh">Price: Low to High</option>
+                    <option value="priceHighToLow">Price: High to Low</option>
+                    <option value="newArrivals">New Arrivals</option>
+                </select>
+            </div>
+            <div class="filters-container">
+                <div class="filter-section">
+                    <h4 onclick="toggleFilter('colorContent', this)">Color</h4>
+                    <div class="filter-content" id="colorContent">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorBlue">
+                            <label class="form-check-label" for="colorBlue">Blue</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorCream">
+                            <label class="form-check-label" for="colorCream">Cream</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorGreen">
+                            <label class="form-check-label" for="colorGreen">Green</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorPink">
+                            <label class="form-check-label" for="colorPink">Pink</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorRed">
+                            <label class="form-check-label" for="colorRed">Red</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorWhite">
+                            <label class="form-check-label" for="colorWhite">White</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section mt-3">
+                    <!-- Price Filter -->
+                    <h4 onclick="toggleFilter('priceContent', this)">Price</h4>
+                    <div class="filter-content" id="priceContent">
+                        <div class="price-range-container">
+                            <label for="minPriceInput" class="form-label">Min Price</label>
+                            <input type="number" id="minPriceInput" class="form-control" min="0" max="500"
+                                value="50" placeholder="Min">
+                            <label for="maxPriceInput" class="form-label mt-2">Max Price</label>
+                            <input type="number" id="maxPriceInput" class="form-control" min="0" max="500"
+                                value="300" placeholder="Max">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section mt-3">
+                    <!-- Flower Type Filter -->
+                    <h4 onclick="toggleFilter('flowerTypeContent', this)">Flower Type</h4>
+                    <div class="filter-content" id="flowerTypeContent">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="flowerLilies">
+                            <label class="form-check-label" for="flowerLilies">Lilies</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="flowerOrchids">
+                            <label class="form-check-label" for="flowerOrchids">Orchids</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Product List -->
+        <div class="col-md-9">
+            <div class="row g-4">
+                {% for product in products %}
+                <!-- Each Product -->
+                <div class="col-6 col-md-4">
+                    <div class="collection">
+                        <a href="{% url 'product_detail' product.id %}" class="btn">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        <h3 class="mt-2">{{ product.name }}</h3>
+                        <p>{{product.price}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/product.js' %}"></script>
+{% endblock %}

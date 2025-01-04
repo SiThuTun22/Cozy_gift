@@ -77,15 +77,17 @@
             </li>
             <!-- Flowers -->
             <li class="nav-item dropdown">
-                <a class="text-dark d-block py-2 dropdown-toggle" href="" id="flowersDropdownMobile" data-bs-toggle="dropdown">
+                <a class="text-dark d-block py-2 dropdown-toggle" href="{% url 'product' %}" id="flowersDropdownMobile" data-bs-toggle="dropdown"  onclick="location.href=this.href;">
                     All products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
-                    <li><a class="dropdown-item" href="{% url 'product' %}">All products</a></li>
-                    <li><a class="dropdown-item" href="#">Fresh Arrangements</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'bouquets' %}">Bouquests</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'cakes' %}">Cakes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'accessories' %}">Accessories</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'candles' %}">Candles</a></li>
                 </ul>
             </li>
-            <!-- Cakes -->
+            <!-- Cakes
             <li class="nav-item dropdown">
                 <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="cakesDropdownMobile" data-bs-toggle="dropdown">
                     Cakes
@@ -94,8 +96,8 @@
                     <li><a class="dropdown-item" href="#">Birthday Cakes</a></li>
                     <li><a class="dropdown-item" href="#">Wedding Cakes</a></li>
                 </ul>
-            </li>
-            <!-- Handmade Crafts -->
+            </li> -->
+            <!-- Handmade Crafts
             <li class="nav-item dropdown">
                 <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="craftsDropdownMobile" data-bs-toggle="dropdown">
                     Handmade Crafts
@@ -104,8 +106,8 @@
                     <li><a class="dropdown-item" href="#">Artisan Gifts</a></li>
                     <li><a class="dropdown-item" href="#">Unique Creations</a></li>
                 </ul>
-            </li>
-            <!-- Candles -->
+            </li> -->
+            <!-- Discover -->
             <li class="nav-item dropdown">
                 <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="candlesDropdownMobile" data-bs-toggle="dropdown">
                     Discover
@@ -139,15 +141,17 @@
             </li>
             <!-- Flowers -->
             <li class="nav-item dropdown">
-                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="flowersDropdown" data-bs-toggle="dropdown">
-                    All Products
+                <a class="text-dark d-block py-2 dropdown-toggle" href="{% url 'product' %}" id="flowersDropdownMobile" data-bs-toggle="dropdown"  onclick="location.href=this.href;">
+                    All products
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="flowersDropdown">
-                    <li><a class="dropdown-item" href="{% url 'product' %}">All Products</a></li>
-                    <li><a class="dropdown-item" href="#">Fresh Arrangements</a></li>
+                <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
+                    <li><a class="dropdown-item" href="{% url 'category' 'bouquets' %}">Bouquests</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'cakes' %}">Cakes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'accessories' %}">Accessories</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'candles' %}">Candles</a></li>
                 </ul>
             </li>
-            <!-- Cakes -->
+            <!-- Cakes
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="cakesDropdown" data-bs-toggle="dropdown">
                     Cakes
@@ -156,8 +160,8 @@
                     <li><a class="dropdown-item" href="#">Birthday Cakes</a></li>
                     <li><a class="dropdown-item" href="#">Wedding Cakes</a></li>
                 </ul>
-            </li>
-            <!-- Handmade Crafts -->
+            </li> -->
+            <!-- Handmade Crafts
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="craftsDropdown" data-bs-toggle="dropdown">
                     Handmade Crafts
@@ -166,8 +170,8 @@
                     <li><a class="dropdown-item" href="#">Artisan Gifts</a></li>
                     <li><a class="dropdown-item" href="#">Unique Creations</a></li>
                 </ul>
-            </li>
-            <!-- Candles -->
+            </li> -->
+            <!-- Discover -->
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="candlesDropdown" data-bs-toggle="dropdown">
                     Discover
