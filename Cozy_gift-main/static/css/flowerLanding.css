@@ -1,0 +1,93 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f2e6d9;
+  
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2f2624;
+    position: relative;
+    color: #f2e6d9; 
+    line-height: 1.8;
+}
+
+.my-flower-landing-fullpage-section {
+  padding: 20px;
+  background-color: #2f2624; 
+  color: #fdf5e9;
+  padding: 3rem;
+}
+
+.my-flower-landing-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.my-flower-landing-title-div {
+  flex: 1;
+  text-align: left;
+}
+
+.my-flower-landing-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  top: 0;
+  
+}
+
+.my-flower-landing-para-div {
+  flex: 2;
+  font-size: 1rem;
+  line-height: 2;
+  min-width: 200px;
+}
+
+
+.Scroll-btn {
+ 
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  padding: 2rem;
+  border: 1px solid #2f2624;
+  border-radius: 10px;
+  background-color: #2f2624;
+  text-align: center;
+
+}
+
+.my-flower-landing-grid-section {
+  background-color: #2f2624;
+}
+
+.grid-container {
+  display: grid;
+  border: 1px solid #2f2624;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); 
+  /* full col width 300px- very large scale */
+  gap: 0;
+  justify-content: center;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-letter-div {
+  padding: 1.5rem;
+}

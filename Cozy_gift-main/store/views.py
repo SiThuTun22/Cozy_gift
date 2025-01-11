@@ -1,12 +1,20 @@
 from django.shortcuts import render,redirect
-from .models import Product,Profile,Category
+from .models import Product,Profile,Category,FlowerStories
 from .forms import SignUpForm, UpdateUserForm,ChangePasswordForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
+
 # Create your views here.
+def flowerLanding(request):
+  flowers = FlowerStories.objects.all()
+  return render(request,"flowerlanding.html",{'flowers':flowers})
+
+def flower_detail(request,name):
+  return render(request, f'{name}.html')
+
 def category(request,foo):
   # replace if there is dash
   foo = foo.replace('-',' ')

@@ -55,7 +55,20 @@ class Product(models.Model):
   sale_price = models.DecimalField(default=0,decimal_places=2,max_digits=6)
   def __str__(self):
     return self.name
-  
+
+class FlowerStories(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=250, default='', blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/flower/')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    
+    class Meta:
+        verbose_name_plural = "Flower Stories"
+    
+    def __str__(self):
+        return self.name
+
+
 class Order(models.Model):
   product = models.ForeignKey(Product,on_delete=models.CASCADE)
   customer = models.ForeignKey(Customer,on_delete=models.CASCADE)

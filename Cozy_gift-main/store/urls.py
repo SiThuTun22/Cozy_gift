@@ -15,4 +15,6 @@ urlpatterns = [
   path('about-us/', views.about_us, name="about_us"),
   path('category/<str:foo>',views.category,name="category"),
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
+  path('flowerLanding/',views.flowerLanding,name="flowerLanding"),
+  path('flower/<str:name>/', views.flower_detail, name='flower_detail'),
 ]
