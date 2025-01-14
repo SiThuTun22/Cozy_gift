@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/coming.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="video-section">
+        <div class="video-container">
+            <video autoplay loop muted playsinline poster="{% static 'images/video-poster.jpg' %}">
+                <source src="{% static 'videos/v.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+    
+    <section class="intro">
+        <img src="{% static 'images/shop.png' %}" alt="Event Image" class="intro-image" />
+    </section>
+    
+    
+    
+    <section class="booth-types">
+        <div class="booth lite">
+            <div class="booth-diagram">
+                <img src="https://i.pinimg.com/736x/d3/89/67/d389674bbc3ce016cdffa444216f4761.jpg" alt="Lite Booth" class="booth-image">
+            </div>
+            <div class="booth-info">
+                <h3>Luxury in Every Detail:</h3>
+                <p>Made with the finest pearls, our sets promise an unmatched glow and elegance. Perfect for weddings, special occasions, or adding a touch of luxury to everyday wear.</p>
+            </div>
+        </div>
+
+        <div class="booth standard">
+            <div class="booth-info">
+                <p>Perfect space, better visibility. Our most popular option gives you plenty of space to connect with your audience and showcase your offerings.</p>
+            </div>
+            <div class="booth-diagram">
+                <img src="https://i.pinimg.com/736x/f0/d2/17/f0d2175ecaf5dcffeb7ebb71fc0c2bf1.jpg" alt="Standard Booth" class="booth-image">
+            </div>
+        </div>
+
+        <div class="booth executive">
+            <div class="booth-diagram">
+                <img src="https://i.pinimg.com/736x/88/b1/c7/88b1c7de217112e097e4602ca7c8df56.jpg" alt="Executive Booth" class="booth-image">
+            </div>
+            <div class="booth-info">
+                <h3>Crafted for Perfection:</h3>
+                <p>Each piece is carefully crafted with the finest materials, ensuring durability and a lasting sparkle that will leave you mesmerized. Whether it's gold, silver, or diamonds, we offer the perfect piece for every style.</p>
+            </div>
+        </div>
+
+        <div class="booth vip">
+            <div class="booth-info">
+                <h2>Coming Soon: <i>A New Era of Elegance</i></h2>
+                <p>
+                    <h3>Get Ready for Timeless Luxury</h3>
+                    Our highly anticipated Necklace & Gold Jewelry Collection is almost here! Crafted with precision, beauty, and elegance, our exclusive collection promises to elevate your style with every piece.
+                </p>
+                <h3>What to Expect:</h3>
+                <ul>
+                    <li>Stunning necklaces that will shine in any setting.</li>
+                    <li>Gold jewelry that adds sophistication to any outfit.</li>
+                    <li>Unmatched craftsmanship designed to last a lifetime.</li>
+                </ul>
+                <h3>Be the First to Experience</h3>
+                <p>Stay tuned for our upcoming launch and be the first to explore designs that redefine luxury. Sign up to get exclusive updates and early access!</p>
+
+                <h2>Mark Your Calendar</h2>
+                <p>Our collection launches soon—don’t miss out on the opportunity to own a piece of timeless beauty.</p>
+
+                <h3>Join Us on This Journey</h3>
+                <p>Follow us on social media for sneak peeks, behind-the-scenes looks, and all the details leading up to the big reveal!</p>
+            </div>
+            <div class="booth-diagram">
+                <img src="https://i.pinimg.com/736x/4e/09/6f/4e096fa4ee3eb91d78903ceb5c339c63.jpg" alt="VIP Package" class="booth-image">
+            </div>
+        </div>
+    </section>
+{% endblock %}

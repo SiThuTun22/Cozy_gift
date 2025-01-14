@@ -28,6 +28,7 @@ header {
     background-color: rgba(57, 125, 198, 0.1);
     color: white;
     padding: 20px 0;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 header .logo {
@@ -36,58 +37,42 @@ header .logo {
     color: white;
 }
 
-/* Styling for Navigation Links */
+/* Navigation Styles */
 .nav-link {
     font-weight: bolder;
     font-size: 14px;
     position: relative;
-    padding: 10px 20px; /* Adjust padding for larger hover area */
+    padding: 10px 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 8px; /* Rounded corners for hover */
+    border-radius: 8px;
 }
 
-/* Hover Effect for Nav Links */
 .nav-link:hover {
-    background-color: rgba(0, 123, 255, 0.1); /* Subtle blue background */
-    color: #007bff; /* Change text color */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    transform: scale(1.05); /* Slight scale-up for hover animation */
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+    transform: scale(1.05);
 }
 
-/* Styling for Icons */
 .icons a {
     font-size: 14px;
     text-decoration: none;
 }
 
 .icons i {
-    font-size: 1.2rem; /* Adjust this value as needed (default is 1.5rem) */
-    margin-right: 4px; /* Optional: Space between the icon and text */
+    font-size: 1.2rem;
+    margin-right: 4px;
 }
 
-/* Header Styling with Shadow */
-header {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for Nav Items */
-.nav-item {
-    font-weight: 900;
-}
-
-/* Hover Effect for Icons */
 .icons a:hover {
     color: #007bff;
 }
 
-/* Force dropdown to display on hover */
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
     animation: dropdownFade 0.3s ease-in-out;
 }
 
-/* Animation for Dropdown Fade In */
 @keyframes dropdownFade {
     from {
         opacity: 0;
@@ -99,47 +84,43 @@ header {
     }
 }
 
-/* Styling for Dropdown Menu */
 .dropdown-menu {
-    min-width: 350px; /* Increases the dropdown menu width */
-    padding: 15px; /* Adds padding inside the dropdown */
+    min-width: 350px;
+    padding: 15px;
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    background-color: #fff; /* Ensure consistent background */
-    border-radius: 8px; /* Optional: Rounded corners */
+    background-color: #fff;
+    border-radius: 8px;
 }
 
-/* Styling for Dropdown Items */
 .dropdown-item {
-    padding: 14px 28px; /* Increases padding for links */
+    padding: 14px 28px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect for Dropdown Items */
 .dropdown-item:hover {
-    background-color: rgba(0, 123, 255, 0.1); /* Subtle blue hover effect */
-    color: #007bff; /* Matches the hover text color */
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007bff;
 }
 
-/* Responsive Design - Stacking Dropdowns on Smaller Screens */
 @media (max-width: 768px) {
     .nav {
-        flex-direction: column; /* Stack nav items vertically */
+        flex-direction: column;
         text-align: center;
     }
 
     .nav-item {
-        width: 100%; /* Make nav items take full width */
+        width: 100%;
     }
 
     .dropdown-menu {
-        position: relative; /* Allow dropdown to appear inline */
-        min-width: 100%; /* Ensure dropdown takes full width */
+        position: relative;
+        min-width: 100%;
     }
 
     .dropdown-item {
-        text-align: left; /* Align text to the left for mobile */
+        text-align: left;
     }
 }
 
@@ -165,85 +146,110 @@ header {
 .hero {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 120px 0;
+    padding: 120px 0; /* Decreased padding for a more subtle height */
     text-align: center;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Ensures full-screen coverage */
+    background-position: center center; /* Keeps the image centered */
+    height: 60vh; /* Sets height to 60% of the viewport height */
+    min-height: 60vh; /* Ensures it stretches to at least 60vh */
 }
 
-.hero h1 {
+
+
+/* Popular Occasions */
+.popular-occasions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items left */
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    gap: 20px; /* Adds spacing between header and images */
+}
+
+.header {
+    flex: 1;
+    text-align: left;
+    margin-right: 20px; /* Adjust margin for better alignment */
+}
+
+.header h2 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    color: #000;
+    line-height: 1.2;
+    margin: 0;
 }
 
-.hero .btn {
-    background-color: #ff7b7b;
-    color: white;
-    border: none;
+.occasions-container {
+    display: flex;
+    flex: 2;
+    gap: 40px;
+    justify-content: flex-start; /* Left-align the images */
+    margin-left: -50px; /* Shift the circles slightly more to the left */
+    flex-wrap: wrap;
 }
 
-/* Special Offer */
-.special-offer, .monthly-special, .special-offer-2 {
-    padding: 40px 0;
+.occasion {
     text-align: center;
+    width: 180px;
 }
 
-.special-offer h2, .monthly-special h2, .special-offer-2 h2 {
-    font-size: 2rem;
+.occasion img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 15px;
 }
 
-.special-offer p, .monthly-special p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+.occasion p {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: bold;
 }
 
-.special-offer .btn, .monthly-special .btn, .special-offer-2 .btn {
-    background-color: #ff7b7b;
-    color: white;
-    border: none;
+@media screen and (max-width: 768px) {
+    .popular-occasions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .occasions-container {
+        justify-content: center;
+        margin-left: 0; /* Reset margin shift on smaller screens */
+    }
+
+    .occasion img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .occasion p {
+        font-size: 1.1rem;
+    }
 }
 
-/* Popular Items */
-.popular-items {
-    background-color: #ffffff;
-    padding: 50px 0;
+.occasions-container a {
+    text-decoration: none;
+    color: inherit; /* Inherits text color to avoid default link styles */
 }
 
-.popular-items h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+.occasions-container a:hover p {
+    color: #ff7b7b; /* Highlight the text when hovered */
 }
 
-.popular-items .item {
-    text-align: center;
-    margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+.occasions-container a:hover img {
+    transform: scale(1.05); /* Slight zoom effect */
+    transition: transform 0.3s ease;
 }
 
-.popular-items .item img {
-    width: 100%; /* Ensures the image fits the container width */
-    height: 250px; /* Sets a fixed height */
-    object-fit: cover; /* Crops and scales the image to maintain aspect ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.popular-items .btn {
-    background-color: #ff7b7b;
-    color: white;
-    border: none;
-}
-
-
-/* Hover Effect for Popular Items */
-.popular-items .item:hover {
-    transform: scale(1.05); /* Slightly scale up the item */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase box-shadow */
-    background-color: #f1f1f1; /* Slightly change background color on hover */
-}
-
-/* Collections */
+/* General Styles for Collections Section */
 .collections {
     background-color: #f9f9f9;
     padding: 50px 0;
@@ -251,42 +257,79 @@ header {
 
 .collections h2 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
+    color: #333;
 }
 
 .collections .collection {
     text-align: center;
     margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 75px;
+    overflow: hidden;
 }
 
 .collections .collection img {
+    width: 550px !important; /* Adjust width */
+    height: 500px !important; /* Adjust height */
+    object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1); /* Added units */
+    margin: 0 auto;
+    display: block;
+}
+.collections .collection h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.collections .collection p {
+    margin: 100px 20 20px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 .collections .btn {
     background-color: #ff7b7b;
     color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
 
-/* Hover Effect for Collections */
-.collections .collection:hover {
-    transform: scale(1.05); /* Slightly scale up the collection */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-    background-color: #f1f1f1; /* Slightly change background color on hover */
+.collections .btn:hover {
+    background-color: #ff5050;
+    color: white;
 }
+
+.collections .collection:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #f1f1f1;
+}
+
+/* Up-Down Effect for Images */
+.collections .col-lg-2:nth-child(odd) {
+    margin-top: -20px; /* Odd items move up */
+}
+
+.collections .col-lg-2:nth-child(even) {
+    margin-top: 20px; /* Even items move down */
+}
+
+
 
 /* Testimonials */
 .testimonials {
-    background-color: #f1f1f1;
+    background-color: rgb(248, 246, 242);
     padding: 50px 0;
 }
 
 .testimonials blockquote {
-    background-color: white;
-    border-left: 5px solid #ff7b7b;
+    background-color: #F8D7E0;
+    border-left: 5px solid #E2426D;
     padding: 20px;
     margin-bottom: 20px;
     font-style: italic;
@@ -294,12 +337,12 @@ header {
 
 .testimonials blockquote footer {
     font-weight: bold;
-    color: #555;
+    color: #E2426D;
 }
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color:#FFF0F4;
     color: white;
     padding: 30px 0;
 }
@@ -326,8 +369,8 @@ footer .form-control {
 }
 
 footer .btn {
-    background-color: #ff7b7b;
-    color: white;
+    background-color: #F8D7E0;
+    color: #E2426D;
     border: none;
 }
 
@@ -335,10 +378,6 @@ footer .btn {
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
-    }
-
-    .popular-items .col-md-3 {
-        margin-bottom: 20px;
     }
 
     .collections .col-md-3 {

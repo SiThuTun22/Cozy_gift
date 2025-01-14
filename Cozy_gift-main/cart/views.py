@@ -56,3 +56,7 @@ def cart_update(request):
     messages.success(request,("Your Cart has been updated..."))
     return response
   # return redirect('cart_summary')
+
+ #coming
+def coming_soon(request):
+    return render(request, 'coming.html') 

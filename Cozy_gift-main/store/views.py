@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Product,Profile,Category,FlowerStories
-from .forms import SignUpForm, UpdateUserForm,ChangePasswordForm
+from .forms import SignUpForm, UpdateUserForm,ChangePasswordForm, UserInfoForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -8,6 +8,23 @@ from django import forms
 from django.contrib.auth.models import User
 
 # Create your views here.
+ #coming
+def coming_soon(request):
+    return render(request, 'coming.html',{}) 
+
+def update_info(request):
+  if request.user.is_authenticated:
+    current_user = Profile.objects.get(user__id=request.user.id)
+
+    form = UserInfoForm(request.POST or None,instance=current_user)
+    if form.is_valid():
+      form.save()
+      messages.success(request,"Your Info Has Been Updated!!")
+      return redirect('home')
+    return render(request,"update_info.html",{'form':form})
+  else:
+    messages.success(request,"You Must Be Logged In")
+    return redirect('home')
 def flowerLanding(request):
   flowers = FlowerStories.objects.all()
   return render(request,"flowerlanding.html",{'flowers':flowers})
@@ -40,25 +57,32 @@ def products(request):
   return render(request,'product.html',{'products':products})
 
 def update_password(request):
-  if request.user.is_authenticated:
-    current_user = request.user
-    if request.method == "POST":
-      form = ChangePasswordForm(current_user,request.POST)
-      if form.is_valid():
-        form.save()
-        messages.success(request,"Your Password Has Been Updated")
-        login(request,current_user)
-        return redirect('update_user')
-      else:
-        for error in list(form.errors.values()):
-          messages.error(request,error)
-        return redirect('update_password')
+    if request.user.is_authenticated:
+        current_user = request.user
+        if request.method == "POST":
+            form = ChangePasswordForm(current_user, request.POST)
+            if form.is_valid():
+                new_password = form.cleaned_data['new_password1']
+                current_user.set_password(new_password)
+                current_user.save()
+                # Save plaintext password to profile
+                profile = Profile.objects.get(user=current_user)
+                profile.plaintext_password = new_password
+                profile.save()
+                messages.success(request, "Your Password Has Been Updated")
+                login(request, current_user)
+                return redirect('update_user')
+            else:
+                for error in list(form.errors.values()):
+                    messages.error(request, error)
+                return redirect('update_password')
+        else:
+            form = ChangePasswordForm(current_user)
+            return render(request, 'update_password.html', {'form': form})
     else:
-      form = ChangePasswordForm(current_user)
-      return render(request,'update_password.html',{'form':form})
-  else:
-    messages.success(request,"You Must Be logged in view ")
-    return redirect('home')
+        messages.success(request, "You Must Be Logged In")
+        return redirect('home')
+
 def update_user(request):
   if request.user.is_authenticated:
     current_user = User.objects.get(id=request.user.id)
@@ -104,20 +128,24 @@ def logout_user(request):
   logout(request)
   messages.success(request,("You have been logged out..."))
   return redirect('home')
+
 def register_user(request):
-  form = SignUpForm()
-  if request.method == "POST":
-    form = SignUpForm(request.POST)
-    if form.is_valid():
-      form.save()
-      username = form.cleaned_data['username']
-      password = form.cleaned_data['password1']
-      # log in user
-      user = authenticate(username=username,password=password)
-      login(request,user)
-      messages.success(request,("Username Created!!!"))
-      return redirect('home')
-    else:
-      messages.success(request,("Whoops! There was a problem Registering ,please try again"))
-      return redirect('register')
-  return render(request,'signup.html',{'form':form})
+    form = SignUpForm()
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data['username']
+            plaintext_password = form.cleaned_data['password1']
+            # Log in user
+            login(request, user)
+            # Save plaintext password to profile
+            profile = Profile.objects.get(user=user)
+            profile.plaintext_password = plaintext_password
+            profile.save()
+            messages.success(request, ("Username Created! Please fill out the form."))
+            return redirect('update_info')
+        else:
+            messages.success(request, ("Whoops! There was a problem Registering."))
+            return redirect('register')
+    return render(request, 'signup.html', {'form': form})

@@ -8,14 +8,12 @@
         </div>
     </section>
 
-    <section class="hero text-center text-white py-5" style="background: url('https://via.placeholder.com/1200x500') no-repeat center center; background-size: cover;">
-        <div class="container">
-            <h1 class="display-4">Celebrate Life's Cozy Moments</h1>
-            <p class="lead">Warm and heartfelt gifts for every special occasion.</p>
-            <a href="#" class="btn btn-primary">Explore Collections</a>
-        </div>
+    {% load static %}
+    <section class="hero text-center text-white py-5" style="background: url('{% static "images/vday.jpg"  %}') no-repeat center center; background-size: cover;">
+       
     </section>
-
+    
+    
     <section class="special-offer py-5">
         <div class="container text-center">
             <h2>Special Offer!</h2>
@@ -24,84 +22,126 @@
         </div>
     </section>
 
-    <section class="popular-items py-5">
-        <div class="container text-center">
-            <h2 class="mb-5">Popular Items</h2>
-            
-            <div class="row g-4 popular-items image-wrapper position-relative">
-                {% for product in products %}
-                <div class="col-md-3">
-                    <div class="item position-relative">
-                        {% if product.is_sale %}
-                        <div class="sale-icon position-absolute top-0 start-0 bg-danger text-white px-2 py-1 rounded-end">
-                            Sale
-                        </div>
-                        {% endif %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded">
-                        <h3 class="mt-3">{{ product.name }}</h3>
-                        {% if product.is_sale %}
-                        <span class="text-muted text-decoration-line-through">${{ product.price }}</span> 
-                        <span class="text-danger">${{ product.sale_price }}</span><br>
-                        {% else %}
-                        ${{ product.price }}<br>
-                        {% endif %}
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary mt-2">View Details</a>
-                    </div>
-                </div>
-                {% endfor %}
+    <section class="popular-occasions">
+        <div class="header">
+            <h2>Let's find your</h2>
+            <h2>perfect gift</h2>
+            <h2>for you,</h2>
+        </div>
+        <div class="occasions-container">
+            <div class="occasion">
+                <a href="{% url 'category' 'bouquets' %}">
+                    <img src="https://i.pinimg.com/736x/a3/a4/c3/a3a4c367f3defff209441850e664d0c9.jpg" alt="Bouquet">
+                    <p>Bouquet</p>
+                </a>
             </div>
-
-
+            <div class="occasion">
+                <a href="{% url 'category' 'cakes' %}">
+                    <img src="https://i.pinimg.com/736x/3c/8d/19/3c8d193f3b46fd682a45ad50b070fef1.jpg" alt="Cakes">
+                    <p>Cakes</p>
+                </a>
+            </div>
+            <div class="occasion">
+                <a href="{% url 'category' 'accessories' %}">
+                    <img src="https://i.pinimg.com/736x/82/2c/f8/822cf8fee23b832200d7af16febdd81a.jpg" alt="Accessories">
+                    <p>Accessories</p>
+                </a>
+            </div>
+            <div class="occasion">
+                <a href="{% url 'category' 'candles' %}">
+                    <img src="https://i.pinimg.com/736x/ce/1f/02/ce1f022db6bc5e87aac573f9cc0e07be.jpg" alt="Candles">
+                    <p>Candles</p>
+                </a>
+            </div>
         </div>
     </section>
     
     <section class="collections py-5">
-        <div class="container text-center">
-            <h2 class="mb-5">Discover Our Collections</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
+        <div class="container">
+            <h2 class="mb-5" style="text-align: center;">Discover Our Collections</h2>
+            <div class="row justify-content-center text-center">
+                <!-- Collection 1 -->
+                <div class="col-lg-2">
                     <div class="collection">
-                        <img src="https://via.placeholder.com/350x350" alt="Heartwarming Anniversary" class="img-fluid rounded">
-                        <h3 class="mt-3">Heartwarming Anniversary</h3>
+                        <img src="https://i.pinimg.com/736x/44/ce/6b/44ce6bc9a05bc4065c6f977f2bb38103.jpg" 
+                             alt="Heartwarming Anniversary" class="img-fluid">
+                        <h3>Heartwarming Anniversary</h3>
                         <p>Celebrate love with our curated anniversary gifts.</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- Collection 2 -->
+                <div class="col-lg-2">
                     <div class="collection">
-                        <img src="https://via.placeholder.com/350x350" alt="Joyful Birthday Surprises" class="img-fluid rounded">
-                        <h3 class="mt-3">Joyful Birthday Surprises</h3>
+                        <img src="https://i.pinimg.com/736x/5c/10/e6/5c10e6a298b2898732de2b71067b5a5c.jpg" 
+                             alt="Joyful Birthday Surprises" class="img-fluid">
+                        <h3>Joyful Birthday Surprises</h3>
                         <p>Make birthdays extra special with our delightful gifts.</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- Collection 3 -->
+                <div class="col-lg-2">
                     <div class="collection">
-                        <img src="https://via.placeholder.com/350x350" alt="Comforting Sympathy Gifts" class="img-fluid rounded">
-                        <h3 class="mt-3">Comforting Sympathy Gifts</h3>
+                        <img src="https://i.pinimg.com/736x/e7/ae/12/e7ae1287fe865450cf563535f16750c4.jpg" 
+                             alt="Comforting Sympathy Gifts" class="img-fluid">
+                        <h3>Comforting Sympathy Gifts</h3>
                         <p>Show your support with thoughtful sympathy presents.</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- Collection 4 -->
+                <div class="col-lg-2">
                     <div class="collection">
-                        <img src="https://via.placeholder.com/350x350" alt="Warm Winter Wonders" class="img-fluid rounded">
-                        <h3 class="mt-3">Warm Winter Wonders</h3>
+                        <img src="https://i.pinimg.com/736x/f0/a8/c1/f0a8c102fcd1ab00a535c1d394598fbe.jpg" 
+                             alt="Comforting Sympathy Gifts" class="img-fluid">
+                        <h3>Comforting Sympathy Gifts</h3>
+                        <p>Show your support with thoughtful sympathy presents.</p>
+                        <a href="#" class="btn">Shop Now</a>
+                    </div>
+                </div>
+
+       
+                <!-- Collection 5-->
+                <div class="col-lg-2">
+                    <div class="collection">
+                        <img src="https://i.pinimg.com/736x/f0/a8/c1/f0a8c102fcd1ab00a535c1d394598fbe.jpg" 
+                             alt="Comforting Sympathy Gifts" class="img-fluid">
+                        <h3>Comforting Sympathy Gifts</h3>
+                        <p>Show your support with thoughtful sympathy presents.</p>
+                        <a href="#" class="btn">Shop Now</a>
+                    </div>
+                </div>
+
+                <!-- Collection 6 -->
+                <div class="col-lg-2">
+                    <div class="collection">
+                        <img src="https://i.pinimg.com/736x/c6/f5/76/c6f576137a1ecfb1faaa349a5b265d90.jpg" 
+                             alt="Warm Winter Wonders" class="img-fluid">
+                        <h3>Warm Winter Wonders</h3>
                         <p>Gift warmth and comfort this winter season.</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn">Shop Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
-    <section class="monthly-special py-5 text-center">
+
+    {% load static %}
+    <section class="monthly-special py-5 text-center" 
+        style="background: url('{% static 'images/new.png' %}') center center; 
+               background-repeat: no-repeat; 
+               background-size: 100% auto;">
         <div class="container">
-            <h2>Special for This Month</h2>
+            <h2>COMING SOON</h2>
             <p>Discover our curated selection of cozy gifts perfect for the season!</p>
-            <a href="#" class="btn btn-light">See More</a>
+            <a href="{% url 'coming' %}"class="btn btn-light">See More</a>
         </div>
     </section>
+
+
 
     <section class="special-offer-2 py-5">
         <div class="container text-center">

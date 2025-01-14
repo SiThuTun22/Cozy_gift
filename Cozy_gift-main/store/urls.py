@@ -7,6 +7,7 @@ urlpatterns = [
   path('login/',views.login_user,name='login'),
   path('logout/',views.logout_user,name="logout"),
   path('update_user/',views.update_user,name="update_user"),
+  path('update_info/',views.update_info,name="update_info"),
   path('update_password/',views.update_password,name="update_password"),
   path('rose/',views.rose,name="rose"),
   path('tulip/',views.tulip,name="tulip"),
@@ -17,4 +18,5 @@ urlpatterns = [
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
   path('flowerLanding/',views.flowerLanding,name="flowerLanding"),
   path('flower/<str:name>/', views.flower_detail, name='flower_detail'),
+  path('coming/', views.coming_soon, name='coming'),
 ]

@@ -12,6 +12,14 @@ class Category(models.Model):
   class Meta:
     verbose_name_plural = 'categories'
 
+class Flower_Categories(models.Model):
+  name = models.CharField(max_length=50)
+  def __str__(self):
+    return self.name
+  class Meta:
+    verbose_name_plural = "Flower categories"
+
+
 # Create your models here.
 class Profile(models.Model):
   user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -23,7 +31,7 @@ class Profile(models.Model):
   state = models.CharField(max_length=200,blank=True)
   zipcode = models.CharField(max_length=200,blank=True)
   country = models.CharField(max_length=200,blank=True)
-  plaintext_password = models.CharField(max_length=128, blank=True, null=True) 
+  plaintext_password = models.CharField(max_length=128, blank=True, null=True)  # Add this field
   
   def __str__(self):
     return self.user.username
@@ -60,8 +68,7 @@ class FlowerStories(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=250, default='', blank=True, null=True)
     image = models.ImageField(upload_to='uploads/flower/')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-    
+    category = models.ForeignKey(Flower_Categories, on_delete=models.CASCADE, default=1)
     class Meta:
         verbose_name_plural = "Flower Stories"
     
