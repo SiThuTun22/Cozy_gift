@@ -1,17 +1,119 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<style>
+  
+    body {
+    
+    background-color: whitesmoke;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+    /* Overlay to make text more readable */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+        z-index: 0;
+    }
+
+    /* Center container styling */
+    .container {
+        position: relative;
+        z-index: 1; /* Above the overlay */
+    }
+
+    /* Card styling */
+    .card {
+        border: none;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    /* Card header with gradient */
+    .card-header {
+        background:  #d6336c;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-bottom: none;
+    }
+
+    /* Form styling */
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #f497b6;
+    }
+
+    .form-control:focus {
+        border-color: #d6336c;
+       
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #d6336c;
+    }
+
+    /* Button styling */
+    .btn-primary {
+        background: #d6336c;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 10px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        background:  #d6336c;
+        transform: scale(1.05);
+    }
+
+    /* Text styling */
+    .text-center a {
+        color: #d6336c;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .text-center a:hover {
+        text-decoration: underline;
+    }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
+</style>
+
+<!-- Semi-transparent overlay -->
+<div class="overlay"></div>
+
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow-lg border-0">
-                <div class="card-header bg-primary text-white text-center">
-                    <h3>Sign Up</h3>
+            <div class="card">
+                <div class="card-header">
+                    Sign Up
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{% url 'register' %}">
                         {% csrf_token %}
                         
-                        <!-- Render each form field beautifully -->
+                        <!-- Form fields -->
                         {% for field in form %}
                         <div class="mb-3">
                             <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
@@ -32,12 +134,11 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="text-center mt-3">
-                <a href="{% url 'login' %}" class="text-decoration-none">Already have an account? Log in here.</a>
+                <div class="text-center mt-3 mb-3">
+                    <a href="{% url 'login' %}">Already have an account? Log in here.</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

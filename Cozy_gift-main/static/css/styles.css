@@ -6,7 +6,9 @@ body {
     padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: 700;
 }
 
@@ -46,10 +48,24 @@ header .logo {
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 8px;
 }
+.navbar {
+    padding: 0.5rem;
+}
 
+/* Reduce logo size */
+.brand-logo {
+    width: 20px;
+    height: 20px;
+}
+
+/* Adjust shop name font size */
+.shop-name {
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent wrapping */
+}
 .nav-link:hover {
     background-color: rgba(0, 123, 255, 0.1);
-    color: #007bff;
+    color: #ff5050;
     transform: scale(1.05);
 }
 
@@ -58,13 +74,23 @@ header .logo {
     text-decoration: none;
 }
 
+
+
+.cart-icon {
+    font-size: 1.2rem; /* Default cart icon size */
+}
+
+.cart-btn {
+    font-size: 1rem; /* Default cart button text size */
+}
+
 .icons i {
     font-size: 1.2rem;
     margin-right: 4px;
 }
 
 .icons a:hover {
-    color: #007bff;
+    color: #ff5050;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -73,11 +99,35 @@ header .logo {
     animation: dropdownFade 0.3s ease-in-out;
 }
 
+.icons-container {
+    gap: 0.5rem;
+}
+
+.small-icon {
+    font-size: 0.9rem; /* Smaller icon size */
+}
+
+/* Adjust cart button and badge */
+.cart-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.cart-icon {
+    font-size: 0.8rem;
+}
+
+.cart-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+}
+
 @keyframes dropdownFade {
     from {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -88,7 +138,7 @@ header .logo {
     min-width: 350px;
     padding: 15px;
     border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: #ff5050;
     background-color: #fff;
     border-radius: 8px;
 }
@@ -100,20 +150,21 @@ header .logo {
 }
 
 .dropdown-item:hover {
-    background-color: rgba(0, 123, 255, 0.1);
-    color: #007bff;
+    background-color:#ffe2e2;
+    color: #ff5050;
 }
 
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
         text-align: center;
+        padding: 0.5rem 1rem;
     }
 
     .nav-item {
         width: 100%;
     }
-
+    
     .dropdown-menu {
         position: relative;
         min-width: 100%;
@@ -122,6 +173,41 @@ header .logo {
     .dropdown-item {
         text-align: left;
     }
+    .navbar {
+        padding: 0.25rem;
+    }
+
+    .brand-logo {
+        width: 17px;
+        height: 17px;
+    }
+    .navbar-brand span {
+        font-size: 14px;
+        /* Adjust text size for shop name */
+        white-space: nowrap;
+        /* Prevent wrapping */
+    }
+    
+    .shop-name {
+        font-size: 1rem;
+    }
+
+    .small-icon {
+        font-size: 1rem;
+    }
+
+    .cart-btn {
+        font-size: 0.7rem;
+    }
+
+    .cart-icon {
+        font-size: 1rem;
+    }
+
+    .cart-badge {
+        font-size: 0.8rem;
+    }
+    
 }
 
 /* Promo Banner */

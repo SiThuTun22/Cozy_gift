@@ -1,17 +1,19 @@
 <!-- Navigation Bar -->
 <div class="sticky-top bg-white">
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom ">
-    <div class="container-fluid d-flex align-items-center justify-content-between sticky-top" >
-        <!-- Hamburger Menu (Left) -->
-        <button class="navbar-toggler order-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container-fluid d-flex align-items-center justify-content-between sticky-top">
+            <!-- Hamburger Menu (Left) -->
+            <button class="navbar-toggler order-0 d-lg-none custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Logo and Shop Name (Centered for small screens) -->
-        <a class="navbar-brand mx-auto aa" href="{% url 'home' %}">
-            <img src="https://via.placeholder.com/30" alt="Logo" width="30" height="30">
-            Cozy Gifts
-        </a>
+       <!-- Logo and Shop Name -->
+       {% load static %}
+<a class="navbar-brand d-flex align-items-center mx-auto text-truncate" href="{% url 'home' %}">
+    <img src="{% static 'images/image.png' %}" alt="Logo" class="me-2 brand-logo">
+    <span class="fs-6 shop-name">Blooming Moments</span>
+</a>
+
 
         <!-- Right-Side Links for Desktop -->
         <ul class="navbar-nav mx-auto d-none d-lg-flex flex-row align-items-center gap-5">
@@ -44,18 +46,24 @@
         </ul>
 
         <!-- Icons for Smaller Screens -->
-        <div class="d-flex d-lg-none gap-2 ">
+        <div class="d-flex d-lg-none gap-1 align-items-center icons-container">
             {% if user.is_authenticated %}
-            <a class="nav-link" href="{% url 'update_user' %}"><i class="bi bi-person"></i></a>
+            <a class="nav-link p-1" href="{% url 'update_user' %}">
+                <i class="bi bi-person small-icon"></i>
+            </a>
             {% else %}
-            <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i></a>
+            <a class="nav-link p-1" href="{% url 'register' %}">
+                <i class="bi bi-person small-icon"></i>
+            </a>
             {% endif %}
-            <a class="nav-link" href="#"><i class="bi bi-search" style="font-size: 1rem;"></i></a>
-            <form class="d-flex">
-                <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"><i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{cart|length}}</span></a>
-              </form>
+            <a class="nav-link p-1" href="#">
+                <i class="bi bi-search small-icon"></i>
+            </a>
+            <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark cart-btn p-1">
+                <i class="bi-cart-fill cart-icon me-1"></i>
+                <span class="badge bg-dark text-white rounded-pill cart-badge" id="cart_quantity">{{ cart|length }}</span>
+            </a>
+            </form>
         </div>
     </div>
 </nav>
