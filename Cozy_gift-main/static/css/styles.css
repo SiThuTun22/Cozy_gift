@@ -54,8 +54,10 @@ header .logo {
 
 /* Reduce logo size */
 .brand-logo {
-    width: 20px;
-    height: 20px;
+    width: 60px; 
+    height: 60px; 
+    border-radius: 40%; 
+    object-fit: cover; 
 }
 
 /* Adjust shop name font size */
@@ -178,14 +180,17 @@ header .logo {
     }
 
     .brand-logo {
-        width: 17px;
-        height: 17px;
+        width: 50px; 
+        height: 50px; 
+        border-radius: 40%; 
+        object-fit: cover; 
+        
     }
     .navbar-brand span {
         font-size: 14px;
-        /* Adjust text size for shop name */
+        
         white-space: nowrap;
-        /* Prevent wrapping */
+        
     }
     
     .shop-name {
