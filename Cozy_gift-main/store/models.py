@@ -57,6 +57,21 @@ class Product(models.Model):
   name = models.CharField(max_length=100)
   price = models.DecimalField(default=0,decimal_places = 2,max_digits = 6)
   category = models.ForeignKey(Category,on_delete = models.CASCADE,default=1)
+  color = models.CharField(
+        max_length=50,
+        choices=[
+            ('Blue', 'Blue'),
+            ('Cream', 'Cream'),
+            ('Green', 'Green'),
+            ('Pink', 'Pink'),
+            ('Red', 'Red'),
+            ('White', 'White'),
+            ('Purple','Purple'),
+        ],
+        default='Blue',  # Set default color
+        null=True,
+        blank=True
+    )
   description = models.CharField(max_length=250,default='',blank=True,null = True) 
   image = models.ImageField(upload_to = 'uploads/product/')
   is_sale = models.BooleanField(default =False)

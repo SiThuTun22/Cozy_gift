@@ -6,8 +6,48 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+def filter_products(request):
+    products = Product.objects.all()
+    
+    # Get filter values from AJAX request
+    colors = request.GET.getlist('color[]')
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    flower_types = request.GET.getlist('flower_type[]')
+    sort_by = request.GET.get('sort_by')
+
+    # Apply filters
+    if colors:
+        products = products.filter(color__in=colors)
+    if flower_types:
+        products = products.filter(flower_type__in=flower_types)
+    if min_price:
+        products = products.filter(price__gte=min_price)
+    if max_price:
+        products = products.filter(price__lte=max_price)
+
+    # Sorting logic
+    if sort_by == "priceLowToHigh":
+        products = products.order_by("price")
+    elif sort_by == "priceHighToLow":
+        products = products.order_by("-price")
+    elif sort_by == "newArrivals":
+        products = products.order_by("-created_at")
+
+    # Convert filtered products to JSON
+    product_data = [
+        {
+            'id': product.id,
+            'name': product.name,
+            'price': str(product.price),
+            'image': product.image.url
+        } for product in products
+    ]
+    
+    return JsonResponse({'products': product_data})
  #coming
 def coming_soon(request):
     return render(request, 'coming.html',{}) 

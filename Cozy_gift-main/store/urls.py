@@ -13,10 +13,12 @@ urlpatterns = [
   path('tulip/',views.tulip,name="tulip"),
   path('orchid/',views.orchid,name="orchid"),
   path('product/',views.products,name="product"),
+  path('filter-products/', views.filter_products, name='filter_products'),
   path('about-us/', views.about_us, name="about_us"),
   path('category/<str:foo>',views.category,name="category"),
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
   path('flowerLanding/',views.flowerLanding,name="flowerLanding"),
   path('flower/<str:name>/', views.flower_detail, name='flower_detail'),
   path('coming/', views.coming_soon, name='coming'),
+
 ]
