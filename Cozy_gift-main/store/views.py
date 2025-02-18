@@ -8,7 +8,21 @@ from django import forms
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 # Create your views here.
+
+def search(request):
+  if request.method == "POST":
+    searched = request.POST['searched']
+
+    searched = Product.objects.filter(Q(name__icontains = searched) | Q(description_icontains = searched)) 
+    if not searched:
+      messages.success(request,"the product doesn't not exist. Please try again!")
+      return render(request,"search.html",{})
+    else:
+      return render(request,"search.html",{"searched":searched})
+  return render(request,"search.html",{})
+
 def filter_products(request):
     products = Product.objects.all()
     

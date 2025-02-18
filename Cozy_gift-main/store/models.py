@@ -3,6 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
+
 # Categories
 class Category(models.Model):
   name = models.CharField(max_length = 50)
@@ -20,7 +21,6 @@ class Flower_Categories(models.Model):
     verbose_name_plural = "Flower categories"
 
 
-# Create your models here.
 class Profile(models.Model):
   user = models.OneToOneField(User,on_delete=models.CASCADE)
   date_modified = models.DateTimeField(User,auto_now=True)

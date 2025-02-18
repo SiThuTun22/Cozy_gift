@@ -19,6 +19,7 @@ urlpatterns = [
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
   path('flowerLanding/',views.flowerLanding,name="flowerLanding"),
   path('flower/<str:name>/', views.flower_detail, name='flower_detail'),
+  path('search/', views.search, name='search'),
   path('coming/', views.coming_soon, name='coming'),
 
 ]
