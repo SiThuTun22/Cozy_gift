@@ -4,34 +4,33 @@
 <link rel="stylesheet" href="{% static 'css/discovery.css' %}">
 {% endblock %}
 {% block content %}
-    <!-- Full-Screen Section -->
-    <div class="full-screen-section-my container-fluid">
-        <!-- Left Side: Text and Paragraph -->
-        <div class="left-section-my">
-            <div class="top-text-my">Flower Meanings</div>
-            <div class="custom-text-my">Tulip</div>
-            <!-- Paragraph only visible on full screen -->
-            <div class="paragraph-text-my
- d-none d-md-block">
- Tulips aren’t too elegant, too romantic, too big, too small, or too bright; tulips are always just right. Not to mention cozy, like snuggling up in your favorite blanket with a fire crackling and snow gently falling.
-            </div>
-        </div>
 
-        <!-- Right Side: Full-Size Image -->
-        <div class="right-section-my">
-            <img src="https://i.pinimg.com/736x/6c/57/da/6c57dabbdb4a1175273e17e750b53e54.jpg 
-            " alt="Tulip Image" class="image-frame-my">
-        </div>
-    </div>
-
-
-    <!-- Additional Paragraph (only for smaller screens) -->
+        <!-- Full-Screen Section -->
+<div class="container-fluid d-flex flex-column flex-md-row align-items-center " style="background-color:#100f0c; color: #f2e6d9;">
+    <!-- Left Side: Text and Paragraph -->
+    <div class="col-md-6 d-flex flex-column justify-content-between vh-100 m-4 py-6 vh-sm-0 min-vh-sm-50">
+         <h1 class="fs-4 md-mt-3 mt-xl-0 text-center fw-light text-uppercase ">Flower Meanings</h1>
     
-    <div class="container-my d-md-none p-4 text-center" style="background-color: #1e1b18; padding: 0 15px;">
-        <p class="paragraph-text" style="color: #f2e6d9;">
+        <h2 class="display-1 m-3 text-center text-capitalize my-title ">Tulip</h2>
+      
+        <p class="d-none d-md-block lead fs-5 mb-0 ">
             Tulips aren’t too elegant, too romantic, too big, too small, or too bright; tulips are always just right. Not to mention cozy, like snuggling up in your favorite blanket with a fire crackling and snow gently falling.
         </p>
+    
     </div>
+
+    <!-- Right Side: Full-Size Image -->
+    <div class="col-md-6">
+        <img src="https://i.pinimg.com/736x/6c/57/da/6c57dabbdb4a1175273e17e750b53e54.jpg" alt="Tulip Image" class="img-fluid">
+    </div>
+</div>
+
+<!-- Additional Paragraph (only for smaller screens) -->
+<div class="container-fluid text-center d-md-none p-4" style="background-color: #100f0c; color: #f2e6d9;">
+    <p class="lead">
+        Tulips aren’t too elegant, too romantic, too big, too small, or too bright; tulips are always just right. Not to mention cozy, like snuggling up in your favorite blanket with a fire crackling and snow gently falling. 
+    </p>
+</div>
     
     <div class="title-my" style="margin-top: 3rem;">
         <h1>The Meanings of Tulips</h1>
@@ -193,7 +192,7 @@ The first tulips had flamed flowers, as painted by Rembrandt. These flames were 
         </div>
        
         <br><br>
-    <div class="content-wrapper-my" style="max-width: 680px;gap: 20px;align-content: center;" >
+    <div class="content-wrapper-my container-fluid m-0" style="max-width: 680px;gap: 20px;align-content: center;" >
         <hr class="left-line-my">
             <div class="content">
                 <h1      class="title-my"           style="text-transform:  uppercase;margin-left: 0;font-weight: 10px;font-size: 20px;margin-top: 20px;" >DID YOU KNOW - Tulip Fun Fact
@@ -206,7 +205,7 @@ The first tulips had flamed flowers, as painted by Rembrandt. These flames were 
                 Today, the Netherlands is still the world’s main producer of commercially sold tulips, producing as many as 3 billion bulbs annually, mostly for export.
             </span>
                 <hr class="divider-my">
-            </div>
+        </div>
             <hr class="right-line-my">
         
      </div>

@@ -32,7 +32,7 @@ class Profile(models.Model):
   zipcode = models.CharField(max_length=200,blank=True)
   country = models.CharField(max_length=200,blank=True)
   plaintext_password = models.CharField(max_length=128, blank=True, null=True)  # Add this field
-  
+  old_cart = models.CharField(max_length=200,blank=True,null=True)
   def __str__(self):
     return self.user.username
   

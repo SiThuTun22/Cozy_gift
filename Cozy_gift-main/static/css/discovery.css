@@ -1,36 +1,18 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color:  #f2e6d9;
-    position: relative;
-    color: #3c2d27; /* Soft dark text */
-    line-height: 1.8;
-}
 
 .full-screen-section-my {
     display: flex;
-    flex-wrap: nowrap; /* Adjusts to wrap at smaller widths */
+    flex-wrap: nowrap; 
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    background-color: #1e1b18;
+    background-color: #1d1a16;
     margin: 0;
     position: relative;
     padding: 0 1.25rem;
 }
 
-
-/* Left Section for Text and Paragraph */
 .left-section-my {
     width: 50%;
     margin-right: 0.625rem;
@@ -45,10 +27,12 @@ body, html {
     align-items: center;
     padding: 2rem;
     text-align: center;
-    position: relative; 
-    box-sizing: border-box; /* Ensures padding is included in width */
+    justify-content: center;
+    position: sticky;
+    box-sizing: border-box; 
   
 }
+
 
 .right-section-my {
   width: 50%;
@@ -63,10 +47,10 @@ body, html {
   text-align: center;
   text-transform: uppercase;
   margin: auto;
-  max-width: 100%; /* stay inside container*/
+  max-width: 100%; 
   position: relative;
   line-height: 0;
-  word-wrap: break-word; /* Prevents long words from overflowing */
+  word-wrap: break-word; 
 }
 
 .custom-text-my {
@@ -74,14 +58,13 @@ body, html {
     font-family: sans-serif;
     margin: auto;
     text-transform: uppercase;
- 
+    
+    
 }
-
-
-@media (max-width: 576px) {
+@media (max-width: 1000px) {
   
  .custom-text-my {
-  /* Bigger font size for smaller screens */
+ 
     font-size: 5rem;
     max-width: 18.75rem; /* 300px = 18.75rem */
   }
@@ -99,73 +82,75 @@ body, html {
     }
 
 }
-/* 
-.paragraph-text-my {
 
-    font-size: 1.2rem;
-    margin-top: auto; 
-    position: relative;
-    margin-bottom: 2rem;
-  
-} */
-
-/* Right Section for Image */
-.right-section-my {
-    width: 50%;
-    overflow: hidden;
-}
-
-
-/* Small Screen: Stack Elements */
-/* 768px */
 @media (max-width: 768px) {
-  .full-screen-section-my {
-      flex-direction: column; /* Stack elements vertically */
-      flex-wrap: wrap;
-      height: 100vh; /* Allow scrolling */
  
+  .full-screen-section-my {
+      flex-direction: column; 
+      flex-wrap: wrap;
+      height: 100vh; 
   }
 
   .left-section-my, .right-section-my {
-      width: 100%; /* Full width */
-      height: auto; /* Adjust height */
+      width: 100%; 
+      height: auto; 
       padding: 1rem;
   }
 
   .custom-text-my {
-      font-size: 5rem; /* Smaller text for phones */
+      font-size: 5rem;
       max-width: 90%;
+      margin-bottom: 3rem;
+    
   }
 
-  .right-section-my {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      bottom: 0; /* Stick to bottom */
-      left: 0;
-      right: 0;
-      height: 25rem; /* Fixed container height */ /* 400px = 25rem */
-      width: 100%;
-      overflow-x: auto; /* Allow horizontal scrolling */
-      overflow-y: hidden; /* Disable vertical scrolling */
-  }
-  
   .paragraph-text-my {
       margin: 1rem 0;
       font-size: 1rem; /* Adjust paragraph size */
          
   }
 
-  .image-frame-my {
-    width: 21.875rem; /* 350px = 21.875rem */
-    height: 28.125rem; /* 450px = 28.125rem */
-    object-fit:fill; /* Ensure the full image fits inside */
-    
-    flex-shrink: 0;
+  .right-section-my {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    height: 100%; 
+    padding: 0;
+    overflow: hidden;
+    position: absolute; 
+
   }
 
+  .image-frame-my {
+    width: 50%;
+    height: 50%;
+    object-fit: cover; 
+    max-width: 100%;
+    max-height: 100%;
+    margin:30%; 
+    position: sticky;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    justify-content: space-between;
 }
 
+
+
+}
+@media (max-width: 1200px) {
+    .right-section-my {
+        display: flex;
+        justify-content: center;
+        align-items: fill; 
+        align-self: fill;
+        height: auto; 
+        width: auto;
+        padding-bottom: 0; 
+    }
+   
+}
 
 h1 {
     font-size: 3.5rem;
@@ -206,18 +191,12 @@ h1 {
   font-size: 1.2em;
 }
 
-/* .content-paragraph-my {
-    width: 800px; 
-    height: auto;
-    margin: 20px auto; 
-    padding: 0 15px; 
-} */
 /*practice*/
 .content-paragraph-my, .funfact-paragraph-my {
-  margin: 1.25rem auto; /* Default margin for all devices */
+  margin: 1.25rem auto; 
   max-width: 40rem; /* 640px = 40rem */
   padding: 0 0.9375rem; /* 15px = 0.9375rem */ 
-  font-size: 1rem; /* Default font size */
+  font-size: 1rem; 
   line-height: 1.5; 
   color: #333; 
   
@@ -477,16 +456,14 @@ h1 {
   outline: none;
 }
 
-/* @media (min-width: 1000px) {
-  .left-section-my {
-    gap: 110px;
-    row-gap: 110px;
-    column-gap: 200px;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    box-shadow: 
-   -5px 0 0 rgba(0, 0, 0, 0.5),    
-    5px 0 0 rgba(0, 0, 0, 0.5);
-   
+/* Custom CSS */
+@media (max-width: 767.98px) { /* Bootstrap's md breakpoint */
+  .vh-sm-0 {
+      height: 0vh !important;
+      min-height: auto !important;
   }
-} */
+  
+  .min-vh-sm-50 {
+      min-height: 20vh !important;
+  }
+}

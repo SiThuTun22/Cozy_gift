@@ -4,33 +4,33 @@
 <link rel="stylesheet" href="{% static 'css/discovery.css' %}">
 {% endblock %}
 {% block content %}
-    <!-- Full-Screen Section -->
-    <div class="full-screen-section-my container-fluid">
-        <!-- Left Side: Text and Paragraph -->
-        <div class="left-section-my">
-            <div class="top-text-my">Flower Meanings</div>
-            <div class="custom-text-my">Orchid</div>
-            <!-- Paragraph only visible on full screen -->
-            <div class="paragraph-text-my
- d-none d-md-block">
- As one of the oldest flowering plants and with over 200,000 different species, the history and symbolism behind these ancient blooms will blow your mind.
-            </div>
-        </div>
 
-        <!-- Right Side: Full-Size Image -->
-        <div class="right-section-my">
-            <img src="https://i.pinimg.com/736x/5f/4f/14/5f4f14e873bf1dee0b34d8eb626664d0.jpg" alt="Orchid Image" class="image-frame-my">
-        </div>
-    </div>
+         <!-- Full-Screen Section -->
+<div class="container-fluid d-flex flex-column flex-md-row align-items-center " style="background-color:#100f0c; color: #f2e6d9;">
+    <!-- Left Side: Text and Paragraph -->
+    <div class="col-md-6 d-flex flex-column justify-content-between vh-100 m-4 py-6 vh-sm-0 min-vh-sm-50">
+         <h1 class="fs-4 md-mt-3 mt-xl-0 text-center fw-light text-uppercase ">Flower Meanings</h1>
     
-
-    <!-- Additional Paragraph (only for smaller screens) -->
-    
-    <div class="container-my d-md-none p-4 text-center" style="background-color: #1e1b18; padding: 0 15px;">
-        <p class="paragraph-text" style="color: #f2e6d9;">
+        <h2 class="display-1 m-3 text-center text-capitalize my-title ">Orchid</h2>
+      
+        <p class="d-none d-md-block lead fs-5 mb-0 ">
             As one of the oldest flowering plants and with over 200,000 different species, the history and symbolism behind these ancient blooms will blow your mind.
         </p>
+    
     </div>
+
+    <!-- Right Side: Full-Size Image -->
+    <div class="col-md-6">
+        <img src="https://i.pinimg.com/736x/5f/4f/14/5f4f14e873bf1dee0b34d8eb626664d0.jpg" alt="Orchid Image" class="img-fluid">
+    </div>
+</div>
+
+<!-- Additional Paragraph (only for smaller screens) -->
+<div class="container-fluid text-center d-md-none p-4" style="background-color: #100f0c; color: #f2e6d9;">
+    <p class="lead">
+        As one of the oldest flowering plants and with over 200,000 different species, the history and symbolism behind these ancient blooms will blow your mind. 
+    </p>
+</div>
     
     <div class="title-my" style="margin-top: 3rem;">
         <h1>The Meanings of Orchids</h1>
@@ -207,7 +207,7 @@
         </div>
        
         <br><br>
-    <div class="content-wrapper-my" style="max-width: 680px;gap: 20px;align-content: center;" >
+    <div class="content-wrapper-my container-fluid m-0" style="max-width: 680px;gap: 20px;align-content: center;" >
         <hr class="left-line-my">
             <div class="content">
                 <h1      class="title-my"           style="text-transform:  uppercase;margin-left: 0;font-weight: 10px;font-size: 20px;margin-top: 20px;" >DID YOU KNOW - Orchid Fun Fact

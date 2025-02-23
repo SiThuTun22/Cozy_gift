@@ -4,34 +4,35 @@
 <link rel="stylesheet" href="{% static 'css/discovery.css' %}">
 {% endblock %}
 {% block content %}
-    <!-- Full-Screen Section -->
-    <div class="full-screen-section-my container-fluid">
-        <!-- Left Side: Text and Paragraph -->
-        <div class="left-section-my">
-            <div class="top-text-my">Flower Meanings</div>
-            <div class="custom-text-my ">Rose</div>
-            <!-- Paragraph only visible on full screen -->
-            <div class="paragraph-text-my
- d-none d-md-block">
-                Roses, the world’s most popular flower, come in just about every color imaginable and express a vast range of emotions. Gardeners obsess over them, and even gas stations sell them. Break out the rose-colored reading glasses for a crash course in this iconic bloom.
-            </div>
-        </div>
 
-        <!-- Right Side: Full-Size Image -->
-        <div class="right-section-my">
-            <img src="https://i.pinimg.com/736x/31/09/99/310999f905b9d19f2daf8e31108841bb.jpg" alt="Rose Image" class="image-frame-my">
-        </div>
-    </div>
-
+        <!-- Full-Screen Section -->
+<div class="container-fluid d-flex flex-column flex-md-row align-items-center " style="background-color:#100f0c; color: #f2e6d9;">
+    <!-- Left Side: Text and Paragraph -->
+    <div class="col-md-6 d-flex flex-column justify-content-between vh-100 m-4 py-6 vh-sm-0 min-vh-sm-50">
+         <h1 class="fs-4 md-mt-3 mt-xl-0 text-center fw-light text-uppercase ">Flower Meanings</h1>
     
-    <!-- Additional Paragraph (only for smaller screens) -->
-    <div class="container-my d-md-none p-4 text-center" style="background-color: #1e1b18; padding: 0 15px;">
-        <p class="paragraph-text" style="color: #f2e6d9;">
+        <h2 class="display-1 m-3 text-center text-capitalize my-title ">Rose</h2>
+      
+        <p class="d-none d-md-block lead fs-5 mb-0 ">
             Roses, the world’s most popular flower, come in just about every color imaginable and express a vast range of emotions. Gardeners obsess over them, and even gas stations sell them. Break out the rose-colored reading glasses for a crash course in this iconic bloom.
         </p>
+    
+    </div>
+
+    <!-- Right Side: Full-Size Image -->
+    <div class="col-md-6">
+        <img src="https://i.pinimg.com/736x/ce/7a/0e/ce7a0eecd804478ba5052d1dc7bdb590.jpg" alt="Rose Image" class="img-fluid">
     </div>
 </div>
+
+<!-- Additional Paragraph (only for smaller screens) -->
+<div class="container-fluid text-center d-md-none p-4" style="background-color: #100f0c; color: #f2e6d9;">
+    <p class="lead">
+        Roses, the world’s most popular flower, come in just about every color imaginable and express a vast range of emotions. Gardeners obsess over them, and even gas stations sell them. Break out the rose-colored reading glasses for a crash course in this iconic bloom. 
+    </p>
 </div>
+   
+
     <div class="title-my" style="margin-top: 2rem;">
         <h1>The Meanings of Roses</h1>
     </div>
@@ -218,7 +219,7 @@ Bobby Darin’s 1962 hit “Eighteen Yellow Roses” sounds like it might be the
         <div class="read-more">READ MORE &#8595;</div>
 
         <br><br>
-    <div class="content-wrapper-my" style="margin: 0 4rem">
+    <div class="content-wrapper-my container-fluid m-0" style="margin: 0 4rem">
         <hr class="left-line-my">
             <div class="content">
                 <h1      class="title-my"           style="text-transform:  uppercase;margin-left: 0;font-weight: 10px;font-size: 20px;margin-top: 20px;" >DID YOU KNOW - Rose Fun Fact
@@ -249,7 +250,7 @@ Bobby Darin’s 1962 hit “Eighteen Yellow Roses” sounds like it might be the
 
     <div class="container-my content-section-my">
         
-        <div class="content-paragraph-my visible">
+        <div class="content-paragraph-my">
             <hr class="divider-my">
             <p>
                 There are a couple hundred different varieties of roses and thousands of cultivars, from shrub roses to miniature roses to dwarf roses to ground-cover roses. Botanists are developing new types of roses all the time, chasing fuller, longer-lasting blooms in ever more striking hues.
@@ -325,41 +326,41 @@ And remember, one of the reasons that roses have such a long history and a vast 
 
         <div class="container-my content-section-my">
         
-            <div class="content-paragraph-my visible">
+            <div class="content-paragraph-my">
                 <hr class="divider-my">
                 <p>
                     There’s no big secret to keeping cut roses fresh, even for as long as two weeks. In fact, the roses you picked up might have been cut in Central America two months ago and stored in a temperature-controlled environment until shipped to the States.
                 </p>
             </div>
-            <div class="content-paragraph-my text-hidden-my" >
+            <div class="content-paragraph-my" >
                 <hr class="divider-my">
                 <p>
                     Once you bring your roses home, remove leaves that would be below the waterline of your vase or container. Have the vase ready with a mixture of room temperature water and a packet of floral preservative. Use sharp pruners to cut the stems at an angle; scissors can mash the woody stems and make it hard for them to take up water. Even if you plan to use the roses in an arrangement with other flowers, it’s good to keep them hydrated while you work.  
                 </p>
             </div>
             <div
-            class="content-paragraph-my text-hidden-my" >
+            class="content-paragraph-my" >
                 <hr class="divider-my">
                 <p>
                     If your roses have thick outside petals (florists call this the shipping leaf or guard petals because they protect the delicate inner petals), you can carefully take those off. 
                 </p>
             </div>
             <div
-            class="content-paragraph-my text-hidden-my" >
+            class="content-paragraph-my" >
                 <hr class="divider-my">
                 <p>
                     Some florists swear by a one-to-one mixture of Sprite or 7-Up and water to increase longevity. Some say you should add a couple of drops of bleach to the water. Some say that both of these tips are totally bunk. See what your own florist advises, or experiment until you figure out what seems to work best for you.  
                 </p>
             </div>
             <div
-            class="content-paragraph-my text-hidden-my" >
+            class="content-paragraph-my " >
                 <hr class="divider-my">
                 <p>
                     Some fruits and veggies give off ethylene gas as they ripen, and some are sensitive to ethylene. (That’s why you should keep ethylene producers like bananas and stone fruits away from ethylene-sensitive fruits like apples and potatoes.) Most flowers do best when kept away from ethylene producers, so banish the fruit bowl to a different corner of the house!
                 </p>
             </div>
             <div
-            class="content-paragraph-my text-hidden-my" >
+            class="content-paragraph-my" >
                 <hr class="divider-my">
                 <p>
 Beyond that, the usual advice about keeping cut flowers fresh applies to roses, too: change the water and recut the stems every other day, and keep your roses away from direct sunlight will fade and dry out the blooms. 

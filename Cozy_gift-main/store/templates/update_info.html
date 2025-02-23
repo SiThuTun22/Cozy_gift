@@ -15,10 +15,17 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <h3 class="text-center" style="color: #d6336c;">Profile Information</h3>
+      <strong>Billing Information</strong>
+      <br><br>
       <form method="POST" action="{% url 'update_info' %}" style="margin-top: 20px;">
         {% csrf_token %}
 
         {{ form.as_p }}
+        <br><br>
+        <strong>Shipping Information</strong>
+        <br><br>
+        {{ shipping_form.as_p }}
+
         <div class="text-center mt-4">
           <button type="submit" class="btn btn-primary" style="background-color: #d6336c; border-color: #d6336c;">Update Profile</button>
         </div>

@@ -5,49 +5,46 @@
 {% endblock %}
 {% block content %}
 
-  <section class="my-flower-landing-fullpage-section d-flex justify-content-center align-items-center  ">
-    <div class="container-fluid d-flex justify-content-center align-items-center my-flower-landing-container mt-5 mb-5">
-
-      <div class="my-flower-landing-title-div col-md-6">
-        <h1 class="my-flower-landing-title font-weight-bold ">FLOWER MEANINGS</h1>
+<section class="my-flower-landing-fullpage-section py-5">
+  <div class="container mt-4 ">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <h1 class="display-3 fw-bold text-white">FLOWER MEANINGS</h1>
       </div>
-      <div class="my-flower-landing-para-div col-md-6">
-        <span class="my-flower-landing-p">
+      <div class="col-md-6 position-relative">
+        <p class="lead mb-4 text-white-75 ">
           You’ve found the central location for the seemingly endless world of flowers! Our ever-increasing flower
           encyclopedia will give you every detail you’ve ever wanted to know about every flower growing under the sun.
-          Learn flower histories, flower symbolism, when and how to give them as a gift, how to grow flowers, how to
-          care for cut flowers, and lots more!
-        </span>
-        <button class="Scroll-btn btn-link p-0 mt-0" aria-label="Scroll to content">
-          <svg width="9" height="22" viewBox="0 0 9 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.27145 20.9762C4.46671 21.1715 4.78329 21.1715 4.97855 20.9762L8.16053 17.7943C8.3558 17.599 8.3558 17.2824 8.16053 17.0871C7.96527 16.8919 7.64869 16.8919 7.45343 17.0871L4.625 19.9156L1.79657 17.0871C1.60131 16.8919 1.28473 16.8919 1.08947 17.0871C0.894203 17.2824 0.894203 17.599 1.08947 17.7943L4.27145 20.9762ZM4.125 0.383423L4.125 20.6227L5.125 20.6227L5.125 0.383423L4.125 0.383423Z"
-              fill="#FDF5E9"></path>
-          </svg>
-        </button>
-      </div>
-
-    </div>
-  </section>
-  <section class="my-flower-landing-grid-section">
+        </p>
       
-        <div class="grid-container mt-0">
-         
-          {% for flower in flowers %}
-          <a href="{% url 'flower_detail' flower.name|lower %}" class="card-link">
-            <div class="card">
-              <div class="card-img-div">
-                <img src="{{ flower.image.url }}" alt="flower card" width="200" height="300" style="color: transparent;object-fit: cover;">
-              </div>
-              <div class="card-letter-div mt-1">
-                <h3 class="card-title">{{ flower.name }}</h3>
-                <p class="card-description">
-                  {{flower.description}}
-                </p>
-              </div>
-            </div>
-          </a> 
-          {% endfor %}
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="my-flower-landing-grid-section">
+  <div class="container">
+    <div class="row g-4 "> <!-- Added gutter spacing -->
+      {% for flower in flowers %}
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <a href="{% url 'flower_detail' flower.name|lower %}" class="card-link">
+          <div class="card h-100"> <!-- Added h-100 for equal height -->
+            <div class="card-img-div ratio-4x3"> <!-- Aspect ratio container -->
+              <img src="{{ flower.image.url }}" 
+                   alt="{{ flower.name }}" 
+                   class="img-fluid object-fit-cover">
+            </div>
+            <div class="card-body text-center">
+              <h3 class="card-title text-light mb-3">{{ flower.name }}</h3>
+              <p class="card-description text-light mb-0">
+                {{ flower.description|truncatechars:100 }}
+              </p>
+            </div>
+          </div>
+        </a> 
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
   {% endblock %}
