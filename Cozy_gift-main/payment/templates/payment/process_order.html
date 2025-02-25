@@ -4,8 +4,8 @@
 <header class="py-5" style="background-color: #f9f0f4; color: #000;">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center">
-            <h1 class="display-4 fw-bolder" style="color: #d63384;">Shopping Cart</h1>
-            <p class="lead fw-normal text-muted mb-0">Review Your Order...</p>
+            <h1 class="display-4 fw-bolder" style="color: #d63384;">Processing Order...</h1>
+            <p class="lead fw-normal text-muted mb-0">This is temporary</p>
         </div>
     </div>
 </header>
@@ -73,15 +73,14 @@
     <form method="POST" action="{% url 'process_order' %}">
       {% csrf_token %}
       {{ billing_form.as_p }}
-    
+    </form>
       
   </div>
 </div>
 <br><br>
         <button type="submit" class="btn btn-secondary">
           Pay Now
-        </button>
-      </form>
+        </a>
       </div>
     </div>
 </div>
