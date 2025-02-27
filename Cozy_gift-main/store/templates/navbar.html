@@ -20,9 +20,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'search' %}"><i class="bi bi-search"></i> Search</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-question-circle"></i> Help</a>
-            </li>
+            
             {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-person"></i>Logout</a>
@@ -38,6 +36,12 @@
                 <a class="nav-link" href="{% url 'register' %}"><i class="bi bi-person"></i>Signup</a>
             </li>
             {% endif %}
+            <li class="nav-item" >
+                <div class="langWrap">
+                <a href="#"  language="english" class="active">EN</a>
+                <a href="#"  language="myanmar">MM</a>
+                </div>
+            </li>
             <form class="d-flex">
                 <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"><i class="bi-cart-fill me-1"></i>
                     Cart
@@ -201,3 +205,5 @@
     </div>
 </div>
 </div>
+<script src="{% static 'js/discovery.js' %}"></script>
+        

@@ -45,11 +45,10 @@
             Shipping Info
           </div>
           <div class="card-body">
+      {% if user.is_authenticated %}
             <form method="POST" action="{% url 'billing_info' %}">
               {% csrf_token %}
-              {{ shipping_form.as_p }}
-            
-            
+              {{ shipping_form.as_p }}      
           </div>
         </div>
 <br>
@@ -57,8 +56,13 @@
           Continue To Billing
         </a>
       </form>
+      {% else %}
+        <a href="{% url 'register' %}" class="text-decoration-none btn btn-sm btn-warning"><b>You need to signup or login first</b></a>
+        <br>
+      {% endif %}
       </div>
     </div>
+    <br>
 </div>
 <br>
 {% endblock %}
