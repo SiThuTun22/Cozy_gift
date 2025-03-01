@@ -13,6 +13,8 @@ import json
 from cart.cart import Cart
 from payment.forms import ShippingForm
 from payment.models import ShippingAddress
+from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 # Create your views here.
 
 def search(request):
@@ -97,8 +99,11 @@ def flowerLanding(request):
   flowers = FlowerStories.objects.all()
   return render(request,"flowerlanding.html",{'flowers':flowers})
 
-def flower_detail(request,name):
-  return render(request, f'{name}.html')
+def flower_detail(request, name):
+    language = request.session.get('language', 'eng')
+    template_name = f'{name}_{language}.html'
+    
+    return render(request, template_name)
 
 def category(request,foo):
   # replace if there is dash
@@ -166,14 +171,7 @@ def update_user(request):
     messages.success(request,"You Must Be Logged In")
     return redirect('home')
 
-def rose(request):
-  return render(request,"rose.html",{})
 
-def tulip(request):
-  return render(request,"tulip.html",{})
-
-def orchid(request):
-  return render(request,"orchid.html",{})
 
 def home(request):
   products = Product.objects.all()
@@ -233,3 +231,42 @@ def register_user(request):
             messages.success(request, ("Whoops! There was a problem Registering."))
             return redirect('register')
     return render(request, 'signup.html', {'form': form})
+# rose twy upgrade code for mm font
+def rose(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/rose_eng.html' if language == 'eng' else 'pages/rose_mm.html'
+    return render(request, template_name)
+
+def orchid(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/orchid_eng.html' if language == 'eng' else 'pages/orchid_mm.html'
+    return render(request, template_name)
+
+def tulip(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/tulip_eng.html' if language == 'eng' else 'pages/tulip_mm.html'
+    return render(request, template_name)
+
+def sunflower(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/sunflower_eng.html' if language == 'eng' else 'pages/sunflower_mm.html'
+    return render(request, template_name)
+
+def lotus(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/lotus_eng.html' if language == 'eng' else 'pages/lotus_mm.html'
+    return render(request, template_name)
+
+def daisy(request):
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'pages/daisy_eng.html' if language == 'eng' else 'pages/daisy_mm.html'
+    return render(request, template_name)
+
+
+# toggle also modify for mm font
+def toggle_language(request):
+    if request.session.get('language', 'eng') == 'eng':
+        request.session['language'] = 'mm'
+    else:
+        request.session['language'] = 'eng'
+    return redirect(request.META.get('HTTP_REFERER', '/'))  # Redirect back to the previous page

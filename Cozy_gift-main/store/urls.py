@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from .views import flower_detail, toggle_language
 urlpatterns = [
   path('',views.home,name="home"),
   path('signup',views.register_user,name="register"),
@@ -18,8 +19,8 @@ urlpatterns = [
   path('category/<str:foo>',views.category,name="category"),
   path('product-detail/<int:pk>',views.product_detail,name="product_detail"),
   path('flowerLanding/',views.flowerLanding,name="flowerLanding"),
-  path('flower/<str:name>/', views.flower_detail, name='flower_detail'),
+  path('flower/<str:name>/', flower_detail, name='flower_detail'),
   path('search/', views.search, name='search'),
   path('coming/', views.coming_soon, name='coming'),
-
+  path('toggle-language/', views.toggle_language, name='toggle_language'),
 ]
