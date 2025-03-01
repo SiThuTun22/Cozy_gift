@@ -18,7 +18,7 @@
         <!-- Right-Side Links for Desktop -->
         <ul class="navbar-nav mx-auto d-none d-lg-flex flex-row align-items-center gap-5">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'search' %}"><i class="bi bi-search"></i> Search</a>
+                <a class="nav-link title1" href="{% url 'search' %}"><i class="bi bi-search"></i> Search</a>
             </li>
             
             {% if user.is_authenticated %}
@@ -37,7 +37,7 @@
             </li>
             {% endif %}
             <li class="nav-item">
-                <a href="{% url 'toggle_language' %}" class="btn btn-primary">
+                <a href="{% url 'toggle_language' %}" class="btn btn-secondary lang-toggle">
                     {% if request.session.language == "eng" %}Switch to Myanmar{% else %}Switch to English{% endif %}
                 </a>
             </li>
@@ -165,37 +165,7 @@
                     <li><a class="dropdown-item" href="{% url 'category' 'candles' %}">Candles</a></li>
                 </ul>
             </li>
-            <!-- Cakes
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="cakesDropdown" data-bs-toggle="dropdown">
-                    Cakes
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="cakesDropdown">
-                    <li><a class="dropdown-item" href="#">Birthday Cakes</a></li>
-                    <li><a class="dropdown-item" href="#">Wedding Cakes</a></li>
-                </ul>
-            </li> -->
-            <!-- Handmade Crafts
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="#" id="craftsDropdown" data-bs-toggle="dropdown">
-                    Handmade Crafts
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="craftsDropdown">
-                    <li><a class="dropdown-item" href="#">Artisan Gifts</a></li>
-                    <li><a class="dropdown-item" href="#">Unique Creations</a></li>
-                </ul>
-            </li> -->
             
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="{% url 'flowerLanding' %}" id="candlesDropdown" data-bs-toggle="dropdown" onclick="location.href=this.href;">
-                    Discover
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="candlesDropdown">
-                    <li><a class="dropdown-item" href="{% url 'rose' %}">Rose</a></li>
-                    <li><a class="dropdown-item" href="{% url 'orchid' %}">Orchids</a></li>
-                    <li><a class="dropdown-item" href="{% url 'tulip' %}">Tulips</a></li>
-                </ul>
-            </li> -->
             <!-- Discover -->
             <li class="nav-item"><a href="{% url 'flowerLanding' %}"  class="nav-link text-dark px-5 mx-3" >Discover</a></li>
             <!-- About Us -->
@@ -206,5 +176,5 @@
     </div>
 </div>
 </div>
-<script src="{% static 'js/discovery.js' %}"></script>
+<script src="{% static 'js/navbar.js' %}"></script>
         

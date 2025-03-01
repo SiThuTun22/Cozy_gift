@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/flowerLanding.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="my-flower-landing-fullpage-section py-5">
+  <div class="container mt-4 ">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <h1 class="display-3 fw-bold text-white">ပန်းအဓိပ္ပါယ်များ</h1>
+      </div>
+      <div class="col-md-6 position-relative">
+        <p class="lead mb-4 text-white-75 ">
+          ပန်းများကို စူးစမ်းဖန်တီးနိုင်သည့် နေရာတစ်ခုသို့ရောက်ရှိလာပါပြီ!
+           ကျွန်ုပ်တို့ page ၏ တိုးတက်လာသည့် ပန်းအကြောင်းအရာများကို အသေးစိတ်ကို ပံ့ပိုးပေးမည်ဖြစ်သည်။</p>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-flower-landing-grid-section">
+  <div class="container">
+    <div class="row g-4 "> <!-- Added gutter spacing -->
+      {% for flower in flowers %}
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <a href="{% url 'flower_detail' flower.name|lower %}" class="card-link">
+          <div class="card h-100"> <!-- Added h-100 for equal height -->
+            <div class="card-img-div ratio-4x3"> <!-- Aspect ratio container -->
+              <img src="{{ flower.image.url }}" 
+                   alt="{{ flower.name }}" 
+                   class="img-fluid object-fit-cover">
+            </div>
+            <div class="card-body text-center">
+              <h3 class="card-title text-light mb-3">{{ flower.name }}</h3>
+              <p class="card-description text-light mb-0">
+                {{ flower.description|truncatechars:100 }}
+              </p>
+            </div>
+          </div>
+        </a> 
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+  {% endblock %}

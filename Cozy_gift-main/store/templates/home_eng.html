@@ -9,9 +9,9 @@
     </section>
 
     {% load static %}
-    <section class="hero text-center text-white py-5" style="background: url('{% static "images/vday.jpg"  %}') no-repeat center center; background-size: cover;">
-       
-    </section>
+<section class="hero text-center text-white py-5" 
+         style="background: url('{% static "images/"|add:current_month|add:".png" %}') no-repeat center center; background-size: cover;">
+</section>
     
     
     <section class="special-offer py-5">
@@ -33,7 +33,7 @@
                 <a href="{% url 'category' 'bouquets' %}">
                     <img src="https://i.pinimg.com/736x/a3/a4/c3/a3a4c367f3defff209441850e664d0c9.jpg" alt="Bouquet">
                     <p>Bouquet</p>
-                </a>
+                </a>    
             </div>
             <div class="occasion">
                 <a href="{% url 'category' 'cakes' %}">

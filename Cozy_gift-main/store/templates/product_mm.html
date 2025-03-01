@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-menu d-block d-md-none mb-3">
+        <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#filterSortMenu"
+            aria-label="Open Filters and Sort">
+            ☰ စစ်ထုတ်ခြင်းနှင့်စီစဉ်ခြင်း
+        </button>
+    </div>
+
+    <!-- Offcanvas for Mobile Filters & Sort -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="filterSortMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">စစ်ထုတ်ခြင်းနှင့်စီစဉ်ခြင်း</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Sort Section -->
+            <div class="mb-4">
+                <h5>အမျိုးအစား -</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortRelevance" checked>
+                    <label class="form-check-label" for="sortRelevance">အရေးပါမှုများ </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortNewest">
+                    <label class="form-check-label" for="sortNewest">အသစ်ရောက်ရှိမှုများ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortPriceLowHigh">
+                    <label class="form-check-label" for="sortPriceLowHigh">ဈေးနှုန်း - အနိမ့်မှ အမြင့်</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOptions" id="sortPriceHighLow">
+                    <label class="form-check-label" for="sortPriceHighLow">ဈေးနှုန်း - အမြင့်မှ အနိမ့်</label>
+                </div>
+            </div>
+
+            <!-- Filters Section -->
+            <h5 class="d-flex justify-content-between align-items-center mb-3">
+                စစ်ထုတ်ခြင်း - <button class="btn btn-link p-0">အားလုံးကိုရှင်းလင်းပါ</button>
+            </h5>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('colorFilter')">အရောင် <span>+</span></h5>
+                <div class="filter-content" id="colorFilter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorBlue">
+                        <label class="form-check-label" for="colorBlue">အပြာရောင်</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorRed">
+                        <label class="form-check-label" for="colorRed">အနီရောင်</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="colorPink">
+                        <label class="form-check-label" for="colorPink">ပန်းရောင်</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('priceFilter')">ဈေးနှုန်း <span>+</span></h5>
+                <div class="filter-content" id="priceFilter">
+                    <label for="minPrice">အနည်းဆုံး ဈေးနှုန်း</label>
+                    <input type="number" id="minPrice" class="form-control mb-2" >
+                    <label for="maxPrice">အများဆုံး ဈေးနှုန်း</label>
+                    <input type="number" id="maxPrice" class="form-control" >
+                </div>
+            </div>
+            <div class="filter-section">
+                <h5 onclick="toggleFilter('flowerTypeFilter')">ပန်းအမျိုးအစား <span>+</span></h5>
+                <div class="filter-content" id="flowerTypeFilter">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="flowerRoses">
+                        <label class="form-check-label" for="flowerRoses">နှင်းဆီ</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="flowerOrchids">
+                        <label class="form-check-label" for="flowerOrchids">သစ်ခွ</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Apply Filters Button -->
+        <div class="apply-filters-btn">
+            စစ်ထုတ်ပါ
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sidebar Filters (Visible in Desktop Mode) -->
+        <div class="col-md-3 d-none d-md-block">
+            <!-- Sort By Section -->
+            <div class="sort-by-container d-md-flex justify-content-end align-items-center mb-3">
+                <label for="sortBy">အမျိုးအစား-  </label>
+                <select id="sortBy" class="form-select form-select-sm w-auto">
+                    <option value="relevance">အရေးပါမှုများ  </option>
+                    <option value="priceLowToHigh">ဈေးနှုန်း - အနိမ့်မှ အမြင့်</option>
+                    <option value="priceHighToLow">ဈေးနှုန်း - အမြင့်မှ အနိမ့်</option>
+                    <option value="newArrivals">အသစ်ရောက်ရှိမှုများ</option>
+                </select>
+            </div>
+            <div class="filters-container">
+                <div class="filter-section">
+                    <h4 onclick="toggleFilter('colorContent', this)">အရောင်</h4>
+                    <div class="filter-content" id="colorContent">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorBlue">
+                            <label class="form-check-label" for="colorBlue">အပြာရောင်</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorRed">
+                            <label class="form-check-label" for="colorRed">အနီရောင်</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorGreen">
+                            <label class="form-check-label" for="colorGreen">အစိမ်းရောင်</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorPink">
+                            <label class="form-check-label" for="colorPink">ပန်းရောင်</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="colorWhite">
+                            <label class="form-check-label" for="colorWhite">အဖြူရောင်</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section mt-3">
+                    <!-- Price Filter -->
+                    <h4 onclick="toggleFilter('priceContent', this)">ဈေးနှုန်း</h4>
+                    <div class="filter-content" id="priceContent">
+                        <div class="price-range-container">
+                            <label for="minPriceInput" class="form-label">အနည်းဆုံး ဈေးနှုန်း</label>
+                            <input type="number" id="minPriceInput" class="form-control" min="0" max="500"
+                                value="50" >
+                            <label for="maxPriceInput" class="form-label mt-2">အမြင့်ဆုံး ဈေးနှုန်း</label>
+                            <input type="number" id="maxPriceInput" class="form-control" min="0" max="500"
+                                value="300" >
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section mt-3">
+                    <!-- Flower Type Filter -->
+                    <h4 onclick="toggleFilter('flowerTypeContent', this)">ပန်းအမျိုးအစား</h4>
+                    <div class="filter-content" id="flowerTypeContent">
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="flowerRoses">
+                            <label class="form-check-label" for="flowerRoses">နှင်းဆီ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="flowerOrchids">
+                            <label class="form-check-label" for="flowerOrchids">သစ်ခွ</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Product List -->
+        <div class="col-md-9">
+            <div class="row g-4">
+                {% for product in products %}
+                <!-- Each Product -->
+                <div class="col-6 col-md-4">
+                    <div class="collection">
+                        <a href="{% url 'product_detail' product.id %}" class="btn">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        <h3 class="mt-2">{{ product.name }}</h3>
+                        <p>{{product.price}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/product.js' %}"></script>
+{% endblock %}

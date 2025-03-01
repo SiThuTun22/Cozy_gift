@@ -17,6 +17,24 @@ from django.shortcuts import render, redirect
 from django.shortcuts import redirect
 # Create your views here.
 
+
+# image according to month
+from datetime import datetime
+
+def home(request):
+    current_month = datetime.now().strftime("%B")  # Get current month name (e.g., "March")
+
+    context = {
+        'products': Product.objects.all(),
+        'current_month': current_month,  # Add this to context
+    }
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'home_eng.html' if language == 'eng' else 'home_mm.html'
+    return render(request, template_name, context)
+
+
+
+
 def search(request):
   if request.method == "POST":
     searched = request.POST['searched']
@@ -95,9 +113,6 @@ def update_info(request):
   else:
     messages.success(request,"You Must Be Logged In")
     return redirect('home')
-def flowerLanding(request):
-  flowers = FlowerStories.objects.all()
-  return render(request,"flowerlanding.html",{'flowers':flowers})
 
 def flower_detail(request, name):
     language = request.session.get('language', 'eng')
@@ -111,9 +126,11 @@ def category(request,foo):
   # Grab the category from the url
   try:
     # Look up the category 
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'category_eng.html' if language == 'eng' else 'category_mm.html'
     category = Category.objects.get(name = foo)
     products = Product.objects.filter(category=category)
-    return render(request, 'category.html',{'products':products,'category':category})
+    return render(request, template_name,{'products':products,'category':category})
   except:
     return redirect('home')
 
@@ -127,7 +144,9 @@ def about_us(request):
 
 def products(request):
   products = Product.objects.all()
-  return render(request,'product.html',{'products':products})
+  language = request.session.get('language', 'eng')  # Default to English
+  template_name = 'product_eng.html' if language == 'eng' else 'product_mm.html'
+  return render(request,template_name,{'products':products})
 
 def update_password(request):
     if request.user.is_authenticated:
@@ -172,10 +191,6 @@ def update_user(request):
     return redirect('home')
 
 
-
-def home(request):
-  products = Product.objects.all()
-  return render(request,'home.html',{'products':products})
 def login_user(request):
   if request.method == "POST":
     username = request.POST['username']
@@ -261,6 +276,20 @@ def daisy(request):
     language = request.session.get('language', 'eng')  # Default to English
     template_name = 'pages/daisy_eng.html' if language == 'eng' else 'pages/daisy_mm.html'
     return render(request, template_name)
+
+
+
+# def flowerLanding(request):
+#   flowers = FlowerStories.objects.all()
+#   return render(request,"flowerlanding.html",{'flowers':flowers})
+
+
+
+def flowerLanding(request):
+    flowers = FlowerStories.objects.all()
+    language = request.session.get('language', 'eng')  # Default to English
+    template_name = 'flowerlanding_eng.html' if language == 'eng' else 'flowerlanding_mm.html'
+    return render(request, template_name,{'flowers':flowers} )
 
 
 # toggle also modify for mm font
