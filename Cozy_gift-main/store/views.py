@@ -15,9 +15,6 @@ from payment.forms import ShippingForm
 from payment.models import ShippingAddress
 from django.shortcuts import render, redirect
 from django.shortcuts import redirect
-# Create your views here.
-
-
 # image according to month
 from datetime import datetime
 
