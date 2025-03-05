@@ -48,18 +48,13 @@
             <div class="filter-section">
                 <h5 onclick="toggleFilter('colorFilter')">Color <span>+</span></h5>
                 <div class="filter-content" id="colorFilter">
+                    {% for color in colors %}
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorBlue">
-                        <label class="form-check-label" for="colorBlue">Blue</label>
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.color__id}}" value="{{color.color__id}}" data-filter="color">
+                        <label class="form-check-label" for="{{color.color__id}}">{{color.title}}</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorRed">
-                        <label class="form-check-label" for="colorRed">Red</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorPink">
-                        <label class="form-check-label" for="colorPink">Pink</label>
-                    </div>
+                    {% endfor %}
+                    
                 </div>
             </div>
             <div class="filter-section">
@@ -108,30 +103,13 @@
                 <div class="filter-section">
                     <h4 onclick="toggleFilter('colorContent', this)">Color</h4>
                     <div class="filter-content" id="colorContent">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorBlue">
-                            <label class="form-check-label" for="colorBlue">Blue</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorCream">
-                            <label class="form-check-label" for="colorCream">Cream</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorGreen">
-                            <label class="form-check-label" for="colorGreen">Green</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorPink">
-                            <label class="form-check-label" for="colorPink">Pink</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorRed">
-                            <label class="form-check-label" for="colorRed">Red</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorWhite">
-                            <label class="form-check-label" for="colorWhite">White</label>
-                        </div>
+                        
+                        {% for color in colors %}
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.id}}" value="{{color.id}}" data-filter="color">
+                        <label class="form-check-label" for="{{color.id}}">{{color.title}}</label>
+                    </div>
+                    {% endfor %}
                     </div>
                 </div>
                 <div class="filter-section mt-3">
@@ -168,16 +146,27 @@
         
         <!-- Product List -->
         <div class="col-md-9">
-            <div class="row g-4">
+            <div class="row g-4" id="filteredProducts">
+                <p class="ajaxLoader">Loading...</p>
                 {% for product in products %}
                 <!-- Each Product -->
                 <div class="col-6 col-md-4">
                     <div class="collection">
+                        {% if product.is_sale %}
+                            <div class="badge bg-danger text-white position-absolute badge-sale" style="top: 10px; right: 10px;">Sale</div>
+                        {% endif %}
                         <a href="{% url 'product_detail' product.id %}" class="btn">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         <h3 class="mt-2">{{ product.name }}</h3>
-                        <p>{{product.price}}</p>
+                            {% if product.is_sale %}
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <p class="text-decoration-line-through">${{ product.price }}</p>
+                                    <p class="ms-2 text-danger">${{ product.sale_price }}</sp>
+                                </div>
+                            {% else %}
+                                <p>${{ product.price }}</p>
+                            {% endif %}
                     </div>
                 </div>
                 {% endfor %}

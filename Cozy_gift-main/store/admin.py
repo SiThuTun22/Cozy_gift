@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Profile, Customer, Order, FlowerStories, Flower_Categories
+from .models import Category, Product, Profile, Customer, Order, FlowerStories, Flower_Categories,Color
 from django.contrib.auth.models import User
 
 # Register your models
@@ -9,6 +9,7 @@ admin.site.register(Customer)
 admin.site.register(Order)
 admin.site.register(Flower_Categories)
 admin.site.register(FlowerStories)
+admin.site.register(Color)
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'phone', 'address1', 'city', 'state', 'country', 'plaintext_password')

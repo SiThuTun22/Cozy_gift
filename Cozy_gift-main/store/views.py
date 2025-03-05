@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Product,Profile,Category,FlowerStories
+from .models import Product,Profile,Category,FlowerStories,Color
 from .forms import SignUpForm, UpdateUserForm,ChangePasswordForm, UserInfoForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
@@ -17,6 +17,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import redirect
 # image according to month
 from datetime import datetime
+from django.template.loader import render_to_string
 
 def home(request):
     current_month = datetime.now().strftime("%B")  # Get current month name (e.g., "March")
@@ -44,45 +45,6 @@ def search(request):
       return render(request,"search.html",{"searched":searched})
   return render(request,"search.html",{})
 
-def filter_products(request):
-    products = Product.objects.all()
-    
-    # Get filter values from AJAX request
-    colors = request.GET.getlist('color[]')
-    min_price = request.GET.get('min_price')
-    max_price = request.GET.get('max_price')
-    flower_types = request.GET.getlist('flower_type[]')
-    sort_by = request.GET.get('sort_by')
-
-    # Apply filters
-    if colors:
-        products = products.filter(color__in=colors)
-    if flower_types:
-        products = products.filter(flower_type__in=flower_types)
-    if min_price:
-        products = products.filter(price__gte=min_price)
-    if max_price:
-        products = products.filter(price__lte=max_price)
-
-    # Sorting logic
-    if sort_by == "priceLowToHigh":
-        products = products.order_by("price")
-    elif sort_by == "priceHighToLow":
-        products = products.order_by("-price")
-    elif sort_by == "newArrivals":
-        products = products.order_by("-created_at")
-
-    # Convert filtered products to JSON
-    product_data = [
-        {
-            'id': product.id,
-            'name': product.name,
-            'price': str(product.price),
-            'image': product.image.url
-        } for product in products
-    ]
-    
-    return JsonResponse({'products': product_data})
  #coming
 def coming_soon(request):
     return render(request, 'coming.html',{}) 
@@ -139,11 +101,24 @@ def product_detail(request,pk):
 def about_us(request):
     return render(request, 'about_us.html')
 
+def filter_data(request):
+  print("🔵 Received GET data:", request.GET)
+  colors=request.GET.getlist('color[]')
+  allProducts = Product.objects.all().distinct()
+  if len(colors) > 0:
+     allProducts = allProducts.filter(color_id__in=colors).distinct()
+  # print("🟢 Extracted colors:", colors)
+  # print("🟢 Filtered Products:", list(products.values()))
+  t = render_to_string('product_list.html',{'data':allProducts})
+  # print("Rendered Template:", t)
+  return JsonResponse({'data':t})
+
 def products(request):
   products = Product.objects.all()
   language = request.session.get('language', 'eng')  # Default to English
   template_name = 'product_eng.html' if language == 'eng' else 'product_mm.html'
-  return render(request,template_name,{'products':products})
+  colors = Color.objects.all()
+  return render(request,template_name,{'products':products,'colors':colors})
 
 def update_password(request):
     if request.user.is_authenticated:

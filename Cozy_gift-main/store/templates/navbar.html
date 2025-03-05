@@ -25,9 +25,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-person"></i>Logout</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'update_user' %}"><i class="bi bi-person"></i>{{request.user}}</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toogle="dropdown" aria-expanded="false">Profile</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'update_user' %}"><i class="bi bi-person"></i>{{request.user}}</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="{% url 'update_info' %}"><i class="bi bi-person"></i>update info</a></li>
+            </ul>
             </li>
+            {% if user.is_superuser %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toogle="dropdown" aria-expanded="false">Order</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'shipped_dash' %}"><i class="bi bi-person"></i>Delivered Orders</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="{% url 'not_shipped_dash' %}"><i class="bi bi-person"></i>Undelivered Orders</a></li>
+            </ul>
+            </li>
+            {% endif %}
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-person"></i>Login</a>
@@ -94,10 +109,10 @@
                     All products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
-                    <li><a class="dropdown-item" href="{% url 'category' 'bouquets' %}">Bouquests</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'cakes' %}">Cakes</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'accessories' %}">Accessories</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'candles' %}">Candles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'bouquet' %}">Bouquests</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'cake' %}">Cakes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'accessory' %}">Accessories</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'candle' %}">Candles</a></li>
                 </ul>
             </li>
             <!-- Cakes
@@ -159,10 +174,10 @@
                     All products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
-                    <li><a class="dropdown-item" href="{% url 'category' 'bouquets' %}">Bouquests</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'cakes' %}">Cakes</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'accessories' %}">Accessories</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'candles' %}">Candles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'bouquet' %}">Bouquests</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'cake' %}">Cakes</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'accessory' %}">Accessories</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'candle' %}">Candles</a></li>
                 </ul>
             </li>
             
