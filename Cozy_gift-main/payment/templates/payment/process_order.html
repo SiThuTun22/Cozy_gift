@@ -21,9 +21,9 @@
             {% for product in cart_products %}
               {{ product.name }}:
                 {% if product.is_sale %}
-                  ${{ product.sale_price }}
+                  {{ product.sale_price }} Kyat
                 {% else %}
-                  ${{ product.price }}
+                  {{ product.price }} Kyat
               {% endif %}
               <br/>
               <small>Quantity:
@@ -34,7 +34,7 @@
               </small>
               <br><br>
             {% endfor %}
-            Total: ${{ totals }}
+            Total: {{ totals }} Kyat
             <br><br>
             <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
           </div>

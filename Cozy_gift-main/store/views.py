@@ -104,9 +104,14 @@ def about_us(request):
 def filter_data(request):
   print("🔵 Received GET data:", request.GET)
   colors=request.GET.getlist('color[]')
+
+  categories = request.GET.getlist('category[]')
   allProducts = Product.objects.all().distinct()
   if len(colors) > 0:
      allProducts = allProducts.filter(color_id__in=colors).distinct()
+  if len(categories) > 0:
+     allProducts = allProducts.filter(category_id__in=categories).distinct()
+
   # print("🟢 Extracted colors:", colors)
   # print("🟢 Filtered Products:", list(products.values()))
   t = render_to_string('product_list.html',{'data':allProducts})
@@ -118,7 +123,8 @@ def products(request):
   language = request.session.get('language', 'eng')  # Default to English
   template_name = 'product_eng.html' if language == 'eng' else 'product_mm.html'
   colors = Color.objects.all()
-  return render(request,template_name,{'products':products,'colors':colors})
+  categories = Category.objects.all()
+  return render(request,template_name,{'products':products,'colors':colors,'categories':categories})
 
 def update_password(request):
     if request.user.is_authenticated:

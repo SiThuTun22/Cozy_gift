@@ -25,7 +25,7 @@
               <pre>{{order.shipping_address}}
               </pre>
               {% for item in items %}
-              {{ item.product }} - {{ item.quantity }} ${{  items.price }}<br>
+              {{ item.product }} -   {{  item.price }} Kyat ({{ item.quantity }})<br>
               {% endfor %}
               <br><br>
               {% if not order.shipped %}

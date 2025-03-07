@@ -67,8 +67,8 @@
                 </div>
             </div>
             <div class="filter-section">
-                <h5 onclick="toggleFilter('flowerTypeFilter')">Flower Type <span>+</span></h5>
-                <div class="filter-content" id="flowerTypeFilter">
+                <h5 onclick="toggleFilter('FlowerTypeFilter')">Categories<span>+</span></h5>
+                <div class="filter-content" id="FlowerTypeFilter">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="flowerLilies">
                         <label class="form-check-label" for="flowerLilies">Lilies</label>
@@ -128,16 +128,15 @@
                 </div>
                 <div class="filter-section mt-3">
                     <!-- Flower Type Filter -->
-                    <h4 onclick="toggleFilter('flowerTypeContent', this)">Flower Type</h4>
+                    <h4 onclick="toggleFilter('flowerTypeContent', this)">Categories</h4>
                     <div class="filter-content" id="flowerTypeContent">
+                    {% for cat in categories %}
+                    
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="flowerLilies">
-                            <label class="form-check-label" for="flowerLilies">Lilies</label>
+                            <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" id="{{ cat.id }}" value="{{ cat.id }}">
+                            <label class="form-check-label" for="{{cat.id}}">{{cat.name}}</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="flowerOrchids">
-                            <label class="form-check-label" for="flowerOrchids">Orchids</label>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -161,11 +160,11 @@
                         <h3 class="mt-2">{{ product.name }}</h3>
                             {% if product.is_sale %}
                                 <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <p class="text-decoration-line-through">${{ product.price }}</p>
-                                    <p class="ms-2 text-danger">${{ product.sale_price }}</sp>
+                                    <p class="text-decoration-line-through">{{ product.price }} Kyat</p>
+                                    <p class="ms-2 text-danger">{{ product.sale_price }} Kyat</sp>
                                 </div>
                             {% else %}
-                                <p>${{ product.price }}</p>
+                                <p>{{ product.price }} Kyat</p>
                             {% endif %}
                     </div>
                 </div>

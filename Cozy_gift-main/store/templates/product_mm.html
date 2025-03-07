@@ -108,28 +108,16 @@
                 <div class="filter-section">
                     <h4 onclick="toggleFilter('colorContent', this)">အရောင်</h4>
                     <div class="filter-content" id="colorContent">
+                        {% for color in colors %}
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorBlue">
-                            <label class="form-check-label" for="colorBlue">အပြာရောင်</label>
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.id}}"
+                                value="{{color.id}}" data-filter="color">
+                            <label class="form-check-label" for="{{color.id}}">{{color.title}}</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorRed">
-                            <label class="form-check-label" for="colorRed">အနီရောင်</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorGreen">
-                            <label class="form-check-label" for="colorGreen">အစိမ်းရောင်</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorPink">
-                            <label class="form-check-label" for="colorPink">ပန်းရောင်</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="colorWhite">
-                            <label class="form-check-label" for="colorWhite">အဖြူရောင်</label>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
+
                 <div class="filter-section mt-3">
                     <!-- Price Filter -->
                     <h4 onclick="toggleFilter('priceContent', this)">ဈေးနှုန်း</h4>
@@ -148,15 +136,13 @@
                     <!-- Flower Type Filter -->
                     <h4 onclick="toggleFilter('flowerTypeContent', this)">ပန်းအမျိုးအစား</h4>
                     <div class="filter-content" id="flowerTypeContent">
+                        {% for cat in categories %}
                         
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="flowerRoses">
-                            <label class="form-check-label" for="flowerRoses">နှင်းဆီ</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="flowerOrchids">
-                            <label class="form-check-label" for="flowerOrchids">သစ်ခွ</label>
-                        </div>
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" data-filter="category" type="checkbox" id="{{ cat.id }}" value="{{ cat.id }}">
+                                <label class="form-check-label" for="{{cat.id}}">{{cat.name}}</label>
+                            </div>
+                            {% endfor %}
                     </div>
                 </div>
             </div>
@@ -165,7 +151,9 @@
         
         <!-- Product List -->
         <div class="col-md-9">
-            <div class="row g-4">
+            <div class="row g-4" id="filteredProducts">
+                <p class="ajaxLoader
+                ">Loading...</p>
                 {% for product in products %}
                 <!-- Each Product -->
                 <div class="col-6 col-md-4">
@@ -179,11 +167,11 @@
                         <h3 class="mt-2">{{ product.name }}</h3>
                         {% if product.is_sale %}
                                 <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <p class="text-decoration-line-through">${{ product.price }}</p>
-                                    <p class="ms-2 text-danger">${{ product.sale_price }}</p>
+                                    <p class="text-decoration-line-through">{{ product.price }} ကျပ်</p>
+                                    <p class="ms-2 text-danger">{{ product.sale_price }}  ကျပ်</p>
                                 </div>
                             {% else %}
-                                <p>${{ product.price }}</p>
+                                <p>{{ product.price }} ကျပ်</p>
                             {% endif %}
                     </div>
                 </div>
