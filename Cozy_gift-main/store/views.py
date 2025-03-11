@@ -106,7 +106,11 @@ def filter_data(request):
   colors=request.GET.getlist('color[]')
 
   categories = request.GET.getlist('category[]')
+  # minPrice = request.GET['minPrice']
+  # maxPrice = request.GET['maxPrice']
   allProducts = Product.objects.all().distinct()
+  # allProducts = allProducts.filter(productattribute__price__gte=minPrice)
+  # allProducts = allProducts.filter(productattribute__price__lte=maxPrice)
   if len(colors) > 0:
      allProducts = allProducts.filter(color_id__in=colors).distinct()
   if len(categories) > 0:
@@ -277,3 +281,7 @@ def toggle_language(request):
     else:
         request.session['language'] = 'eng'
     return redirect(request.META.get('HTTP_REFERER', '/'))  # Redirect back to the previous page
+
+# suggestion page
+def suggestion(request):
+    return render(request, "suggestion.html")

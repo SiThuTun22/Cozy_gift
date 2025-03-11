@@ -47,20 +47,12 @@
             </h5>
             <div class="filter-section">
                 <h5 onclick="toggleFilter('colorFilter')">အရောင် <span>+</span></h5>
-                <div class="filter-content" id="colorFilter">
+                {% for color in colors %}
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorBlue">
-                        <label class="form-check-label" for="colorBlue">အပြာရောင်</label>
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.id}}" value="{{color.id}}" data-filter="color">
+                        <label class="form-check-label" for="{{color.id}}">{{color.title}}</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorRed">
-                        <label class="form-check-label" for="colorRed">အနီရောင်</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="colorPink">
-                        <label class="form-check-label" for="colorPink">ပန်းရောင်</label>
-                    </div>
-                </div>
+                    {% endfor %}
             </div>
             <div class="filter-section">
                 <h5 onclick="toggleFilter('priceFilter')">ဈေးနှုန်း <span>+</span></h5>
@@ -74,14 +66,12 @@
             <div class="filter-section">
                 <h5 onclick="toggleFilter('flowerTypeFilter')">ပန်းအမျိုးအစား <span>+</span></h5>
                 <div class="filter-content" id="flowerTypeFilter">
+                    {% for cat in categories %}
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="flowerRoses">
-                        <label class="form-check-label" for="flowerRoses">နှင်းဆီ</label>
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{ cat.id }}" value="{{ cat.id }}" data-filter="category">
+                        <label class="form-check-label" for="{{cat.id}}">{{cat.name}}</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="flowerOrchids">
-                        <label class="form-check-label" for="flowerOrchids">သစ်ခွ</label>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -93,7 +83,7 @@
 
     <div class="row">
         <!-- Sidebar Filters (Visible in Desktop Mode) -->
-        <div class="col-md-3 d-none d-md-block">
+        <div class="col-md-3 d-none d-md-block sticky-sidebar sticky-top" style=" top: 200px;max-height: calc(100vh - 100px); overflow-y: auto; background: white; padding: 10px;z-index: 1000; ">
             <!-- Sort By Section -->
             <div class="sort-by-container d-md-flex justify-content-end align-items-center mb-3">
                 <label for="sortBy">အမျိုးအစား-  </label>
@@ -134,7 +124,7 @@
                 </div>
                 <div class="filter-section mt-3">
                     <!-- Flower Type Filter -->
-                    <h4 onclick="toggleFilter('flowerTypeContent', this)">ပန်းအမျိုးအစား</h4>
+                    <h4 onclick="toggleFilter('flowerTypeContent', this)">အမျိုးအစား</h4>
                     <div class="filter-content" id="flowerTypeContent">
                         {% for cat in categories %}
                         

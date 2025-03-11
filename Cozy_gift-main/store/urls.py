@@ -22,7 +22,7 @@ urlpatterns = [
   path('flower/<str:name>/', flower_detail, name='flower_detail'),
   path('search/', views.search, name='search'),
   path('coming/', views.coming_soon, name='coming'),
-  
   #modify toggle_language 
   path('toggle-language/', views.toggle_language, name='toggle_language'),
+   path('suggestion/', views.suggestion, name='suggestion'),
 ]

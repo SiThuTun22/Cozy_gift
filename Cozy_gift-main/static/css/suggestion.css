@@ -1,0 +1,490 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Heading styles */
+.about-heading {
+    font-family: 'Playfair Display', serif;
+    color: #4a6e81;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 600;
+    font-size: 36px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.about-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #c25133, transparent);
+    animation: expandWidth 1.5s ease-in-out;
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to { width: 80px; }
+}
+/* Rose meanings section */
+.rose-meanings {
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Product container */
+.product-container {
+border: 1px solid #e0e0e0;
+border-radius: 12px;
+margin: 20px 0; /* Reduced margin */
+background-color: white;
+display: flex;
+flex-direction: column;
+width: 100%;
+height: auto; /* Auto height to fit content */
+max-height: 280px; /* Smaller max height */
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+transition: all 0.3s ease;
+overflow: hidden; 
+}
+
+.product-container:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Product layout */
+.product {
+display: flex;
+align-items: center;
+width: 100%;
+padding: 10px;  /* Reduced padding */
+height: auto; /* Allow content to scale with smaller container height */
+}
+
+/* Product image */
+.product-image {
+width: 150px;  /* Smaller width */
+height: 120px;  /* Even smaller height */
+margin-right: 15px;  /* Reduced margin */
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+position: relative;
+}
+
+/* Product image with zoom effect */
+.product-image img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Ensures image covers the container while maintaining aspect ratio */
+transition: transform 0.5s ease;
+}
+
+.product-image:hover img {
+transform: scale(1.05);
+}
+
+/* Product information */
+.product-info {
+flex: 1;
+text-align: left;
+}
+
+.product-title {
+font-family: 'Playfair Display', serif;
+font-weight: 600;
+font-size: 18px;  /* Smaller font size */
+color: #000;
+margin-bottom: 6px;  /* Reduced margin */
+transition: color 0.3s ease;
+}
+
+.product-container:hover .product-title {
+color: #c25133;
+}
+
+/* Buy button */
+.buy-button {
+background: linear-gradient(135deg, #c25133, #e67e22);
+color: white;
+border: none;
+padding: 8px 20px;  /* Smaller padding */
+cursor: pointer;
+font-size: 12px;  /* Smaller font size */
+font-weight: 500;
+transition: all 0.3s ease;
+margin-left: 10px;  /* Reduced margin */
+white-space: nowrap;
+text-decoration: none;
+display: inline-block;
+text-align: center;
+border-radius: 50px;
+box-shadow: 0 4px 15px rgba(194, 81, 51, 0.3);
+}
+
+.buy-button:hover {
+background: linear-gradient(135deg, #e67e22, #c25133);
+transform: translateY(-3px);
+box-shadow: 0 7px 20px rgba(194, 81, 51, 0.4);
+}
+
+
+/* Description section */
+.description {
+    font-size: 17px;
+    margin: 35px 0;
+    width: 100%;
+    text-align: left;
+    line-height: 1.8;
+    padding: 0 15px;
+}
+
+.description p {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    transition: transform 0.3s ease;
+}
+
+.description p:hover {
+    transform: translateX(5px);
+}
+
+.description p::before {
+    content: '❀';
+    position: absolute;
+    left: 0;
+    color: #c25133;
+    font-size: 16px;
+}
+
+.description strong {
+    font-weight: 700;
+    color: #4a6e81;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: auto;
+        min-width: auto;
+    }
+
+    .buy-button {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.occasion-section {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    background: linear-gradient(to bottom, #fff, #f9f9f9);
+}
+
+.occasion-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.occasion-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #c25133, transparent);
+}
+
+.occasion-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #555;
+    position: relative;
+    display: inline-block;
+}
+
+.occasion-subtitle::before,
+.occasion-subtitle::after {
+    content: '✿';
+    color: #c25133;
+    margin: 0 15px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.scroll-wrapper {
+    overflow: hidden;
+    width: 85%;
+    margin: auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.scroll-container {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.occasion-card {
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.occasion-card:hover {
+    transform: translateY(-15px);
+}
+
+.occasion-card::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #c25133;
+    transition: width 0.3s ease;
+}
+
+.occasion-card:hover::after {
+    width: 50%;
+}
+
+/* Card image container with elegant styling */
+.card-image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.occasion-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.occasion-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay effect on hover */
+.card-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.occasion-card:hover .card-image-container::after {
+    opacity: 1;
+}
+
+.occasion-name {
+    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.occasion-card:hover .occasion-name {
+    color: #c25133;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #c25133;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-btn:hover {
+    background-color: #c25133;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(194, 81, 51, 0.3);
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+/* Enhanced Content Box Design */
+.content-container {
+    margin: 30px auto;
+    padding: 40px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff, #f8f8f8);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: relative;
+    max-width: 900px;
+    transform-origin: top center;
+}
+.content-container.show {
+    display: block;
+    animation: expandContent 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes expandContent {
+    from { opacity: 0; transform: scaleY(0.8); }
+    to { opacity: 1; transform: scaleY(1); }
+}
+.content-container p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.content-container p::before {
+    content: '❀';
+    position: absolute;
+    left: 0;
+    color: #c25133;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: #c25133;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn:hover {
+    background-color: #c25133;
+    color: white;
+    transform: rotate(90deg);
+    box-shadow: 0 5px 15px rgba(194, 81, 51, 0.3);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .occasion-card {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .content-container {
+        padding: 30px 20px;
+    }
+
+    .content-container p {
+        font-size: 16px;
+    }
+
+    .about-heading {
+        font-size: 28px;
+    }
+
+    .occasion-title {
+        font-size: 26px;
+    }
+
+    .occasion-subtitle {
+        font-size: 22px;
+    }
+}
+

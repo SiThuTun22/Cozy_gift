@@ -11,11 +11,11 @@
                         <h3 class="mt-2">{{ product.name }}</h3>
                             {% if product.is_sale %}
                                 <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <p class="text-decoration-line-through">${{ product.price }}</p>
-                                    <p class="ms-2 text-danger">${{ product.sale_price }}</sp>
+                                    <p class="text-decoration-line-through">{{ product.price }} Kyat</p>
+                                    <p class="ms-2 text-danger">{{ product.sale_price }} Kyat</sp>
                                 </div>
                             {% else %}
-                                <p>${{ product.price }}</p>
+                                <p>{{ product.price }} Kyat</p>
                             {% endif %}
                     </div>
                 </div>

@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/suggestion.css' %}">
+{% endblock %}
+{% block content %}
+
+<!-- Roses Section -->
+<div class="container occasion-section">
+    <h2 class="occasion-title">Bouquets Meanings And Suggestions</h2>
+    <h4 class="occasion-subtitle">Roses</h4>
+
+    <button class="scroll-btn left-btn" id="prevBtnRose">&#10094;</button>
+
+    <div class="scroll-wrapper">
+        <div id="scroll-container-rose" class="scroll-container">
+            <div class="occasion-card" onclick="showContent('Rose', 'red')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/redrose.png' %}" alt="Red Roses">
+                </div>
+                <p class="occasion-name">Red Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'white')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/whiterose.png' %}" alt="White Roses">
+                </div>
+                <p class="occasion-name">White Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'pink')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/pinkrose.png' %}" alt="Pink Roses">
+                </div>
+                <p class="occasion-name">Pink Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'yellow')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/yellowrose.png' %}" alt="Yellow Roses">
+                </div>
+                <p class="occasion-name">Yellow Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'lavender')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/lavenderrose.png' %}" alt="Lavender Roses">
+                </div>
+                <p class="occasion-name">Lavender Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'orange')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/orangerose.png' %}" alt="Orange Roses">
+                </div>
+                <p class="occasion-name">Orange Roses</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('Rose', 'blue')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/bluerose.png' %}" alt="Blue Roses">
+                </div>
+                <p class="occasion-name">Blue Roses</p>
+            </div>
+        </div>
+    </div>
+    
+    <button class="scroll-btn right-btn" id="nextBtnRose">&#10095;</button>
+</div>
+
+<!-- Content Box for Roses -->
+<div id="content-boxRose" class="container content-container">
+    <button class="close-btn" onclick="hideContent('Rose')">x</button>
+    <p id="content-textRose"></p>
+</div>
+
+<div class="container">
+    <h1 class="about-heading">Rose Meaning By Numbers</h1>
+
+    <p><strong>A Single Rose </strong>  – signifies <b>"Love at First Sight"</b> and represents steadfast loyalty to one person, conveying the message, <b>"You are the sole focus of my deepest affections,"</b> regardless of its color.</p>
+
+    <div class="rose-meanings">
+        <!-- 1 Rose -->
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/onerose.png' %}" alt="One Rose">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Love at First Sight</div>    
+                </div>
+                <a href="{% url 'product_detail' 44 %}" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- 2 Roses -->
+        <p><strong>2 Roses </strong> – you would gift two single roses to those you are deeply in love with.</p>
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/tworose.png' %}" alt="Two Roses">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Sweet Pastel</div>    
+                </div>
+                <a href="" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- 3 Roses -->
+        <p><strong>3 Roses </strong> <b>"I Love You"</b>.</p>
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/threerose.png' %}" alt="Three Roses">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Pink Fantasy Bouquet</div>    
+                </div>
+                <a href="" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="description">
+            <p><strong>4 Roses</strong> – the perfect way to say ‘nothing will come between us’.</p>
+            <p><strong>5 Roses</strong> – a great way to signify your love for a special someone.</p>
+            <p><strong>6 Roses</strong> represents support during tough times.</p>
+            <p><strong>7 Roses</strong> symbolizes <strong>eternal love</strong>.</p>
+            <p><strong>8 Roses</strong> symbolizes <strong>eternal love</strong>.</p>
+            <p><strong>9 Roses</strong> symbolizes <strong>eternal love</strong>.</p>
+        </div>  
+    </div>
+
+
+        <!-- 10 Roses -->
+        <p><strong>10 Roses</strong> – a simple yet powerful way to tell a special someone they are perfect.</p>
+    <div class="rose-meanings">
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/tenrose.png' %}" alt="Ten Roses">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Perfect Love</div>    
+                </div>
+                <a href="" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+    </div>
+        <!-- 11 Roses -->
+        <p><strong>11 Roses</strong> – "You are my treasured one."</p>
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/elevenrose.png' %}" alt="Eleven Roses">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Devil's Love (11 preserved roses)</div>    
+                </div>
+                <a href="" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Rose meanings description -->
+        <div class="description">
+            <p><strong>12 Roses</strong> – A simple way to ask someone to be yours.</p>
+            <p><strong>13 Roses</strong> – Symbolizes either eternal friendship or a secret admirer.</p>
+            <p><strong>14 Roses</strong> – If you're proud of someone, 14 roses is the number to choose.</p>
+            <p><strong>15 Roses</strong> – A way to ask for forgiveness if you've upset someone.</p>
+            <p><strong>16 Roses</strong> – Say ‘Bon Voyage’ with 16 roses.</p>
+            <p><strong>17 Roses</strong> – The perfect number for gifting your wife on special occasions.</p>
+            <p><strong>18 Roses</strong> – A symbol of sincerity and truth.</p>
+            <p><strong>20 Roses</strong> – Symbolic of sincerity and belief.</p>
+            <p><strong>21 Roses</strong> – Represents deep commitment.</p>
+            <p><strong>22 Roses</strong> – Represents togetherness and luck.</p>
+            <p><strong>23 Roses</strong> – Symbolizes <strong>eternal love</strong>.</p>
+        </div>
+
+        <!-- 24 Roses -->
+        <p><strong>24 Roses</strong> – Represents 24 hours, meaning <b>“You are always on my mind.”</b></p>
+        <div class="product-container">
+            <div class="product">
+                <div class="product-image">
+                    <img src="{% static 'images/twentyfourrose.png' %}" alt="24 Roses">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Golden Devotion</div>
+                    <p>An exquisite arrangement symbolizing eternal love and devotion.</p>
+                </div>
+                <a href="" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+            
+            <div class="description">
+                <p><strong>25 Roses</strong>– wish someone all the happiness in the world with 25 roses. </p>
+                <p><strong>27 Roses</strong>– tell your wife how much you love her with 27 roses. </p>
+                <p><strong>30 Roses</strong> – this quantity suggests faith and faithfulness. </p>
+                <p><strong>33 Roses</strong> – signifies affection. 33 roses mean you love her the most and want to love her forever. In Chinese, No. 33 is the magic number. Means 3 lives and 3 generations, or generation to generation, or forever --- bouquet of 33 roses to send to loved ones is the most popular in China. </p>
+            </div>
+
+                        <!-- 33 -->
+                        <div class="product-container">
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="{% static 'images/thirtythreerose.png' %}" alt="Galaxy Eternal Love">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-title">Pure & Perfect</div>
+    
+                                </div>
+                                <a href="" class="buy-button">Buy Now</a>
+                            </div>
+                             </div>
+                            <div class="description">
+                                <p><strong> 40 Roses</strong> – if you hold a genuine love for a special someone, this is the number to choose.</p>
+                                <p><strong>47 Roses</strong> – this number signifies ‘you are my one and only’.</p>
+                                <p><strong>48 Roses</strong>– representative of an unchanging love.</p>
+                                <p><strong>50 Roses  – unconditional love.</strong></p>
+                            </div>           
+                        
+
+
+               <!-- 50-->
+               <div class="product-container">
+                <div class="product">
+                    <div class="product-image">
+                        <img src="{% static 'images/fiftyrose.png' %}" alt="Galaxy Eternal Love">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Unconditional Love ( 50 Roses )</div>
+
+                    </div>
+                    <a href="" class="buy-button">Buy Now</a>
+                </div>
+                </div>
+                
+                <p><strong>52 Roses </strong> – In China, gifting 52 roses is a significant symbol of deep passion and devotion, conveying a strong and unforgettable "I love you" or 我爱你 (wǒ ài nǐ) message.
+            <!-- 52-->
+            <div class="product-container">
+                <div class="product">
+                    <div class="product-image">
+                        <img src="{% static 'images/fiftytworose.png' %}" alt="Galaxy Eternal Love">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Unconditional Love ( 52 Champagne Roses )</div>
+                    </div>
+                    <a href="" class="buy-button">Buy Now</a>
+                    </div>
+                    </div>
+
+                    <div class="description">
+                        <p><strong> 56 Roses</strong> – this number in a bouquet simply means ‘love’.</p>
+                        <p><strong>66 Roses</strong> –  this quantity on the other hand suggests ‘my love for you will never change’.</p>
+                        <p><strong>77 Roses</strong> – this number of roses signifies ‘faith’ and that you believe the person you are gifting is your soul mate.</p>
+                        <p><strong>88 Roses</strong>– if you owe someone a rather big apology, 88 is the number of stems to choose.</p>
+                        <p><strong>99 Roses  – “I will love you till the day I die!”.</strong></p>
+                        <p><strong>100 Roses</strong> – a gesture of devotion.
+                            <p><strong>108 Roses - " Will you marry me".</strong></p>
+                    </div>
+                    
+                 <!-- 108-->
+            <div class="product-container">
+                <div class="product">
+                    <div class="product-image">
+                        <img src="{% static 'images/onezeroeithtrose.png' %}" alt="Galaxy Eternal Love">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Will You Marry Me (108 red roses)</div>
+
+                    </div>
+                    <a href="" class="buy-button">Buy Now</a>
+                    </div>       
+        </div>
+    </div>
+
+
+<!-- Myanmar Seasonal Flowers Section -->
+<div class="container occasion-section">
+    <h4 class="occasion-subtitle">Myanmar Seasonal Flowers</h4>
+
+    <button class="scroll-btn left-btn" id="prevBtnFlower">&#10094;</button>
+
+
+    
+    <div class="scroll-wrapper">
+        <div id="scroll-container-flower" class="scroll-container">
+            <div class="occasion-card" onclick="showContent('KantKaw', 'padauk')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/padauk.png' %}" alt="Padauk" >
+                </div>
+                <p class="occasion-name">Padauk</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('KantKaw', 'khantkaw')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/khantkaw.png' %}" alt="Khant Kaw" >
+                </div>
+                <p class="occasion-name">Khant Kaw</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('KantKaw', 'jasmine')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/jasmine.png' %}" alt="Jasmine" >
+                </div>
+                <p class="occasion-name">Jasmine</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('KantKaw', 'thazin')">
+                <div class="card-image-container">
+                    <img src="{% static 'images/thazin.png' %}" alt="Thazin" >
+                </div>
+                <p class="occasion-name">Thazin</p>
+            </div>
+            <div class="occasion-card" onclick="showContent('KantKaw', 'sakawar')">
+                <div class="card-image-container">
+                    <iimg src="{% static 'images/sakawar.png' %}" alt="Sa Ka War" >
+                </div>
+                <p class="occasion-name">Sa Ka War</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-btn right-btn" id="nextBtnFlower">&#10095;</button>
+</div>
+
+<!-- Content Box for Myanmar Flowers -->
+<div id="content-boxKantKaw" class="container content-container">
+    <button class="close-btn" onclick="hideContent('KantKaw')">x</button>
+    <p id="content-textKantKaw"></p>
+</div>
+
+<script>
+    // Content Data
+    const contentData = {
+        Rose: {
+            red: "Red roses symbolize love and romance. They are a traditional symbol of deep emotions and are often given to express love.",
+            white: "White roses signify purity, innocence, and new beginnings. They are often used in weddings and memorials.",
+            pink: "Pink roses represent admiration, gratitude, and joy. They are great for expressing appreciation.",
+            yellow: "Yellow roses symbolize friendship, warmth, and happiness. They are perfect for brightening someone's day.",
+            lavender: "Lavender roses convey enchantment and love at first sight. They are unique and signify admiration.",
+            orange: "Orange roses represent enthusiasm and passion. They are often given to symbolize energy and excitement.",
+            blue: "Blue roses signify mystery and the impossible, as they do not exist naturally."
+        },
+        KantKaw: {
+            padauk: "The Padauk flower, known as the national flower of Myanmar, symbolizes strength, resilience, and youthfulness, as it blooms vibrantly during the Myanmar New Year festival (Thingyan). In Myanmar, people believe that when the Padauk tree blossoms, it brings prosperity and happiness for the coming year.",
+            khantkaw: "The Khant Kaw flower represents eternal love, loyalty, and passion, making it a popular flower in romantic settings.",
+            jasmine: "The Jasmine flower is a universal symbol of love, beauty, and good luck, often used in weddings and celebrations.",
+            thazin: "The Thazin flower was once cherished by Burmese princesses, symbolizing their grace and purity. In Myanmar, gifting a Thazin flower is a way to express deep love and loyalty to someone special.",
+            sakawar: "The Champaca flower (Magnolia champaca), also known as Golden Champa or Joy Perfume Tree, is a highly fragrant and sacred flower in many Asian cultures."
+        }
+    };
+
+    // Function to Show Content
+    function showContent(type, key) {
+        const contentBox = document.getElementById(`content-box${type}`);
+        const contentText = document.getElementById(`content-text${type}`);
+        contentText.innerText = contentData[type][key];
+        contentBox.style.display = "block";
+        contentBox.style.animation = 'fadeInn 0.3s ease forwards';
+    }
+
+    // Function to Hide Content
+    function hideContent(type) {
+        const contentBox = document.getElementById(`content-box${type}`);
+        contentBox.style.display = "none";
+        contentBox.style.animation = 'fadeOut 0.3s ease forwards';
+        
+    }
+
+    // Scroll Functionality
+    document.addEventListener("DOMContentLoaded", function () {
+        const setupScroll = (containerId, prevBtnId, nextBtnId) => {
+            const container = document.getElementById(containerId);
+            const cards = container.querySelectorAll(".occasion-card");
+            const cardWidth = cards[0].offsetWidth;
+            const visibleCards = 4;
+            const totalCards = cards.length;
+            const maxPosition = totalCards - visibleCards;
+            let position = 0;
+
+            document.getElementById(prevBtnId).addEventListener("click", () => {
+                if (position > 0) {
+                    position--;
+                    container.style.transform = `translateX(-${position * cardWidth}px)`;
+                }
+            });
+
+            document.getElementById(nextBtnId).addEventListener("click", () => {
+                if (position < maxPosition) {
+                    position++;
+                    container.style.transform = `translateX(-${position * cardWidth}px)`;
+                }
+            });
+        };
+
+        setupScroll("scroll-container-rose", "prevBtnRose", "nextBtnRose");
+        setupScroll("scroll-container-flower", "prevBtnFlower", "nextBtnFlower");
+    });
+</script>
+
+{% endblock %}

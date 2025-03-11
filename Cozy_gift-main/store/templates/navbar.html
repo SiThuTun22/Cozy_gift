@@ -104,17 +104,8 @@
                 </ul>
             </li> -->
             <!-- Flowers -->
-            <li class="nav-item dropdown">
-                <a class="text-dark d-block py-2 dropdown-toggle" href="{% url 'product' %}" id="flowersDropdownMobile" data-bs-toggle="dropdown"  onclick="location.href=this.href;">
-                    All products
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
-                    <li><a class="dropdown-item" href="{% url 'category' 'bouquet' %}">Bouquests</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'cake' %}">Cakes</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'accessory' %}">Accessories</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'candle' %}">Candles</a></li>
-                </ul>
-            </li>
+            
+            <li><a href="{% url 'product' %}" class="text-dark d-block py-2">All Products</a></li>
             <!-- Cakes
             <li class="nav-item dropdown">
                 <a class="text-dark d-block py-2 dropdown-toggle" href="#" id="cakesDropdownMobile" data-bs-toggle="dropdown">
@@ -146,7 +137,7 @@
                     <li><a class="dropdown-item" href="{% url 'tulip' %}">Tulips</a></li>
                 </ul> 
             </li> -->
-            <li><a href="{% url 'flowerLanding' %}" class="text-dark d-block py-2">Discover</a></li>
+            <li><a href="{% url 'suggestion' %}" class="text-dark d-block py-2">Suggestion</a></li>
             <!-- About Us -->
             <li><a href="{% url 'about_us' %}" class="text-dark d-block py-2">About Us</a></li>
         </ul>
@@ -169,20 +160,10 @@
                 </ul>
             </li> -->
             <!-- Flowers -->
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark px-5 mx-3 dropdown-toggle" href="{% url 'product' %}" id="flowersDropdownMobile" data-bs-toggle="dropdown"  onclick="location.href=this.href;">
-                    All products
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="flowersDropdownMobile">
-                    <li><a class="dropdown-item" href="{% url 'category' 'bouquet' %}">Bouquests</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'cake' %}">Cakes</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'accessory' %}">Accessories</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'candle' %}">Candles</a></li>
-                </ul>
-            </li>
-            
+            <li class="nav-item"><a href="{% url 'product' %}" class="nav-link text-dark px-5 mx-3" >All Products</a></li>
+        
             <!-- Discover -->
-            <li class="nav-item"><a href="{% url 'flowerLanding' %}"  class="nav-link text-dark px-5 mx-3" >Discover</a></li>
+            <li class="nav-item"><a href="{% url 'suggestion' %}"  class="nav-link text-dark px-5 mx-3" >Suggestion</a></li>
             <!-- About Us -->
             <li class="nav-item">
                 <a class="nav-link text-dark px-5 mx-3" href="{% url 'about_us' %}">About Us</a>

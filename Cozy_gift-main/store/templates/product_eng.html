@@ -50,8 +50,8 @@
                 <div class="filter-content" id="colorFilter">
                     {% for color in colors %}
                     <div class="form-check">
-                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.color__id}}" value="{{color.color__id}}" data-filter="color">
-                        <label class="form-check-label" for="{{color.color__id}}">{{color.title}}</label>
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{color.id}}" value="{{color.id}}" data-filter="color">
+                        <label class="form-check-label" for="{{color.id}}">{{color.title}}</label>
                     </div>
                     {% endfor %}
                     
@@ -61,7 +61,8 @@
                 <h5 onclick="toggleFilter('priceFilter')">Price <span>+</span></h5>
                 <div class="filter-content" id="priceFilter">
                     <label for="minPrice">Min Price</label>
-                    <input type="number" id="minPrice" class="form-control mb-2" placeholder="Min">
+                    <input type="number" id="minPrice" 
+                    class="form-control mb-2" placeholder="Min" >
                     <label for="maxPrice">Max Price</label>
                     <input type="number" id="maxPrice" class="form-control" placeholder="Max">
                 </div>
@@ -69,14 +70,12 @@
             <div class="filter-section">
                 <h5 onclick="toggleFilter('FlowerTypeFilter')">Categories<span>+</span></h5>
                 <div class="filter-content" id="FlowerTypeFilter">
+                {% for cat in categories %}
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="flowerLilies">
-                        <label class="form-check-label" for="flowerLilies">Lilies</label>
+                        <input class="form-check-input filter-checkbox" type="checkbox" id="{{ cat.id }}" value="{{ cat.id }}" data-filter="category">
+                        <label class="form-check-label" for="{{cat.id}}">{{cat.name}}</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="flowerOrchids">
-                        <label class="form-check-label" for="flowerOrchids">Orchids</label>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -88,7 +87,7 @@
 
     <div class="row">
         <!-- Sidebar Filters (Visible in Desktop Mode) -->
-        <div class="col-md-3 d-none d-md-block">
+        <div class="col-md-3 d-none d-md-block sticky-sidebar sticky-top" style=" top: 200px;max-height: calc(100vh - 100px); overflow-y: auto; background: white; padding: 10px;z-index: 1000; ">
             <!-- Sort By Section -->
             <div class="sort-by-container d-md-flex justify-content-end align-items-center mb-3">
                 <label for="sortBy" class="me-2">Sort By:</label>
@@ -117,12 +116,12 @@
                     <h4 onclick="toggleFilter('priceContent', this)">Price</h4>
                     <div class="filter-content" id="priceContent">
                         <div class="price-range-container">
-                            <label for="minPriceInput" class="form-label">Min Price</label>
-                            <input type="number" id="minPriceInput" class="form-control" min="0" max="500"
-                                value="50" placeholder="Min">
-                            <label for="maxPriceInput" class="form-label mt-2">Max Price</label>
-                            <input type="number" id="maxPriceInput" class="form-control" min="0" max="500"
-                                value="300" placeholder="Max">
+                            <label for="minPrice" class="form-label">Min Price</label>
+                            <input type="number" id="minPrice" class="form-control" min="0" max="9999999" placeholder="Min">
+                            <label for="maxPrice" class="form-label mt-2">Max Price</label>
+                            <input type="number" id="maxPrice" class="form-control" min="0" max="9999999"
+                            placeholder="Max">
+                                <button class="btn btn-info btn-sm mt-2">filter</button>
                         </div>
                     </div>
                 </div>
